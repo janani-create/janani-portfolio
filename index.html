@@ -9,7 +9,7 @@
     <script>
       document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme") || "dark";
     </script>
-    <link rel="stylesheet" href="style.css?v=20260831-32">
+    <link rel="stylesheet" href="style.css?v=20260901-1">
     <!-- boxicon css link -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Link Swiper's CSS -->
@@ -51,19 +51,19 @@
 
             <div class="social-media">
                 <div class="bg-icon">
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="images/social/facebook.svg" alt="" width="28" height="28"></a>
+                    <a href="https://www.facebook.com/profile.php?id=61583912349891" target="_blank" rel="noopener noreferrer" aria-label="Janani's Facebook profile"><img src="images/social/facebook.svg" alt="" width="28" height="28"></a>
                 </div>
 
                 <div class="bg-icon">
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="images/social/linkedin.svg" alt="" width="28" height="28"></a>
+                    <a href="https://www.linkedin.com/in/janani-somasiri-0b67a8219/" target="_blank" rel="noopener noreferrer" aria-label="Janani's LinkedIn profile"><img src="images/social/linkedin.svg" alt="" width="28" height="28"></a>
                 </div>
 
                 <div class="bg-icon">
-                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="images/social/github.svg" alt="" width="28" height="28"></a>
+                    <a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer" aria-label="Janani's GitHub profile"><img src="images/social/github.svg" alt="" width="28" height="28"></a>
                 </div>
 
                 <div class="bg-icon">
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="images/social/instagram.svg" alt="" width="28" height="28"></a>
+                    <a href="https://www.instagram.com/anju_janani21/" target="_blank" rel="noopener noreferrer" aria-label="Janani's Instagram profile"><img src="images/social/instagram.svg" alt="" width="28" height="28"></a>
                 </div>
             </div>
         </div>
@@ -224,7 +224,7 @@
     <section class="certificates" id="certificates">
         <div class="certificates-heading"><span>Achievements</span><h2>My <strong>Certificates</strong></h2><p>Certifications that represent my skills, knowledge<br>and continuous learning journey.</p></div>
         <div class="certificate-filters" aria-label="Certificate categories"><button class="active" type="button">All</button><button type="button">Web Development</button><button type="button">Programming</button><button type="button">Database</button><button type="button">Tools</button><button type="button">Design</button><button type="button">Others</button></div>
-        <div class="certificate-grid">
+        <div class="certificate-grid certificate-grid-preview" id="certificate-grid">
             <article class="certificate-card purple"><div class="certificate-preview"><img src="images/certificates/graphic-design-certificate.jpg" alt="Certificate in Graphic Design" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-palette'></i></span><h3>Certificate in Graphic Design</h3><p>Benedict XVI Catholic Institute</p><time><i class='bx bx-calendar'></i> Aug 31, 2021</time></div><a href="documents/certificates/certificate-document-01.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
             <article class="certificate-card purple"><div class="certificate-preview"><img src="images/certificates/ict-certificate.jpg" alt="Certificate in Information and Communication Technology" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-desktop'></i></span><h3>Certificate in ICT</h3><p>Benedict XVI Catholic Institute</p><time><i class='bx bx-calendar'></i> Jun 30, 2022</time></div><a href="documents/certificates/certificate-document-02.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
             <article class="certificate-card green"><div class="certificate-preview"><img src="images/certificates/advanced-ict-certificate.jpg" alt="Advanced Certificate in Information and Communication Technology" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-code-alt'></i></span><h3>Advanced Certificate in ICT</h3><p>Benedict XVI Catholic Institute</p><time><i class='bx bx-calendar'></i> Oct 31, 2022</time></div><a href="documents/certificates/certificate-document-03.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
@@ -232,6 +232,17 @@
             <article class="certificate-card red"><div class="certificate-preview"><img src="images/certificates/prefect-appreciation-certificate.jpg" alt="Certificate of Appreciation for Senior Prefect service" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-medal'></i></span><h3>Certificate of Appreciation</h3><p>C.W.W. Kannangara Central College</p><time><i class='bx bx-calendar'></i> 2020</time></div><a href="documents/certificates/certificate-document-05.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
             <article class="certificate-card yellow"><div class="certificate-preview"><img src="images/certificates/office-applications-certificate.jpg" alt="Course in Office Applications certificate" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-spreadsheet'></i></span><h3>Course in Office Applications</h3><p>Zonal Computer Resource Centre</p><time><i class='bx bx-calendar'></i> Dec 06, 2014</time></div><a href="documents/certificates/certificate-document-06.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
             <article class="certificate-card blue"><div class="certificate-preview"><img src="images/certificates/office-programming-certificate.jpg" alt="Office Applications and Visual Basic Programming certificate" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-code-block'></i></span><h3>Office Applications &amp; Visual Basic</h3><p>Zonal Computer Resource Centre</p><time><i class='bx bx-calendar'></i> Jun 20, 2018</time></div><a href="documents/certificates/certificate-document-07.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
+            <article class="certificate-card purple"><div class="certificate-preview"><img src="images/certificates/python-programming-certificate.jpg" alt="Python Programming e-certificate" loading="lazy"></div><div class="certificate-info"><span><i class='bx bxl-python'></i></span><h3>Python Programming</h3><p>University of Moratuwa · Open Learning</p><time><i class='bx bx-calendar'></i> 2025</time></div><a href="documents/certificates/certificate-document-08.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
+            <article class="certificate-card yellow"><div class="certificate-preview"><img src="images/certificates/python-beginners-certificate.jpg" alt="Python for Beginners e-certificate" loading="lazy"></div><div class="certificate-info"><span><i class='bx bxl-python'></i></span><h3>Python for Beginners</h3><p>University of Moratuwa · Open Learning</p><time><i class='bx bx-calendar'></i> Oct 30, 2025</time></div><a href="documents/certificates/certificate-document-09.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
+            <article class="certificate-card green"><div class="certificate-preview"><img src="images/certificates/project-management-certificate.jpg" alt="Foundations of Project Management e-certificate" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-task'></i></span><h3>Foundations of Project Management</h3><p>University of Moratuwa · Open Learning</p><time><i class='bx bx-calendar'></i> 2025</time></div><a href="documents/certificates/certificate-document-10.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
+            <article class="certificate-card blue"><div class="certificate-preview"><img src="images/certificates/web-design-beginners-certificate.jpg" alt="Web Design for Beginners e-certificate" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-layout'></i></span><h3>Web Design for Beginners</h3><p>University of Moratuwa · Open Learning</p><time><i class='bx bx-calendar'></i> 2025</time></div><a href="documents/certificates/certificate-document-11.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
+            <article class="certificate-card yellow"><div class="certificate-preview"><img src="images/certificates/aiml-engineer-stage-1-certificate.jpg" alt="AI and Machine Learning Engineer Stage 1 certificate" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-brain'></i></span><h3>AI/ML Engineer – Stage 1</h3><p>SLIIT · Faculty of Computing</p><time><i class='bx bx-calendar'></i> Nov 13, 2025</time></div><a href="documents/certificates/certificate-document-12.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
+            <article class="certificate-card blue"><div class="certificate-preview"><img src="images/certificates/c-programming-certificate.jpg" alt="C Programming certificate" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-code-curly'></i></span><h3>C Programming</h3><p>Online Learning Certificate</p><time><i class='bx bx-calendar'></i> Nov 7, 2024</time></div><a href="documents/certificates/certificate-document-13.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
+            <article class="certificate-card purple"><div class="certificate-preview"><img src="images/certificates/figma-certificate.jpg" alt="Figma certificate" loading="lazy"></div><div class="certificate-info"><span><i class='bx bxl-figma'></i></span><h3>Figma</h3><p>Online Learning Certificate</p><time><i class='bx bx-calendar'></i> May 20, 2026</time></div><a href="documents/certificates/certificate-document-14.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
+            <article class="certificate-card green"><div class="certificate-preview"><img src="images/certificates/tensorflow-python-certificate.jpg" alt="TensorFlow with Python certificate" loading="lazy"></div><div class="certificate-info"><span><i class='bx bx-network-chart'></i></span><h3>TensorFlow with Python</h3><p>Great Learning</p><time><i class='bx bx-calendar'></i> Oct 6, 2024</time></div><a href="documents/certificates/certificate-document-15.pdf" target="_blank" rel="noopener noreferrer">View Certificate <i class='bx bx-link-external'></i></a></article>
+        </div>
+        <div class="certificate-more-wrap">
+            <a class="certificate-more" href="certificates.html" target="_blank" rel="noopener noreferrer"><span>View More Certificates</span><i class='bx bx-right-arrow-alt' aria-hidden="true"></i></a>
         </div>
         <div class="certificates-cta certificates-note"><span><i class='bx bx-trophy'></i></span><p><strong>Continuous learning is the key to success.</strong>Always learning, always improving!</p></div>
     </section>
@@ -278,10 +289,10 @@
                 <div class="contact-social-line" aria-hidden="true"></div>
                 <p>I'm active on social media. Let's connect and build something amazing together.</p>
                 <div class="contact-social-grid">
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="images/social/facebook.svg" alt="" width="44" height="44"><span>Facebook</span></a>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><img src="images/social/linkedin.svg" alt="" width="44" height="44"><span>LinkedIn</span></a>
-                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><img src="images/social/github.svg" alt="" width="44" height="44"><span>GitHub</span></a>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="images/social/instagram.svg" alt="" width="44" height="44"><span>Instagram</span></a>
+                    <a href="https://www.facebook.com/profile.php?id=61583912349891" target="_blank" rel="noopener noreferrer"><img src="images/social/facebook.svg" alt="" width="44" height="44"><span>Facebook</span></a>
+                    <a href="https://www.linkedin.com/in/janani-somasiri-0b67a8219/" target="_blank" rel="noopener noreferrer"><img src="images/social/linkedin.svg" alt="" width="44" height="44"><span>LinkedIn</span></a>
+                    <a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer"><img src="images/social/github.svg" alt="" width="44" height="44"><span>GitHub</span></a>
+                    <a href="https://www.instagram.com/anju_janani21/" target="_blank" rel="noopener noreferrer"><img src="images/social/instagram.svg" alt="" width="44" height="44"><span>Instagram</span></a>
                 </div>
             </aside>
         </div>
@@ -426,6 +437,6 @@
      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <!-- mixitup cdn js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <script src="script.js?v=20260831-6"></script>
+    <script src="script.js?v=20260901-9"></script>
 </body>
 </html>

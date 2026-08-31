@@ -6272,3 +6272,82 @@ html[data-theme="light"] .certificate-modal-actions button{color:#5b21b6;border-
     .services .servicesItem .icon-services{width:96px!important;height:96px!important;flex-basis:96px!important}
     .services .servicesItem .icon-services i{font-size:2.8rem!important}
 }
+
+/* Keep the desktop brand closer to the header's left edge. */
+@media(min-width:901px){
+    header{padding-left:14px!important}
+}
+
+/* Keep the certificate section compact until the visitor asks to see more. */
+.certificate-grid-preview .certificate-card:nth-child(n+7){display:none!important}
+.certificate-more-wrap{position:relative;z-index:2;display:flex;margin:22px auto 0;justify-content:center}
+.certificate-more{
+    display:inline-flex;
+    min-width:220px;
+    min-height:48px;
+    padding:11px 22px;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:#fff;
+    border:1px solid rgba(168,85,247,.58);
+    border-radius:999px;
+    background:linear-gradient(105deg,#7028e7,#a335df,#ff8511);
+    box-shadow:0 12px 28px rgba(124,58,237,.24);
+    font:inherit;
+    font-size:.78rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:transform .25s ease,box-shadow .25s ease;
+}
+.certificate-more:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(124,58,237,.34)}
+.certificate-more i{font-size:1.25rem;transition:transform .3s ease}
+.certificate-more:hover i{transform:translateX(4px)}
+html[data-theme="light"] .certificate-more{border-color:rgba(124,58,237,.42);box-shadow:0 12px 25px rgba(124,58,237,.2)}
+@media(prefers-reduced-motion:reduce){.certificate-more,.certificate-more i{transition:none}}
+
+/* Standalone certificates gallery page. */
+.certificates-page{background:#030914}
+.certificates-page .certificates{min-height:calc(100vh - 70px);padding-top:132px}
+.certificate-page-actions{position:relative;z-index:2;display:flex;margin:24px auto 0;justify-content:center}
+.certificate-page-actions .certificate-more:hover i{transform:translateX(-4px)}
+html[data-theme="light"] .certificates-page{background:#f8fafc}
+@media(max-width:620px){.certificates-page .certificates{padding-top:108px}}
+
+/* Standalone brand pill inside the desktop navigation. */
+@media(min-width:901px){
+    header .logo{
+        position:relative;
+        display:inline-flex;
+        min-height:52px;
+        padding:0 20px;
+        align-items:center;
+        justify-content:center;
+        border:1px solid rgba(139,92,246,.34);
+        border-radius:16px;
+        background:linear-gradient(135deg,rgba(139,92,246,.13),rgba(15,23,42,.58));
+        box-shadow:inset 0 1px rgba(255,255,255,.05),0 9px 24px rgba(68,35,135,.16);
+        transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+    }
+    header .logo::before{
+        content:"";
+        position:absolute;
+        left:18px;
+        right:18px;
+        bottom:-1px;
+        height:2px;
+        border-radius:2px;
+        background:linear-gradient(90deg,#8b5cf6,#ff8a0d);
+        opacity:.8;
+    }
+    header .logo:hover{
+        transform:translateY(-2px);
+        border-color:rgba(168,85,247,.62);
+        box-shadow:inset 0 1px rgba(255,255,255,.07),0 12px 28px rgba(124,58,237,.24);
+    }
+    html[data-theme="light"] header .logo{
+        border-color:rgba(124,58,237,.22);
+        background:linear-gradient(135deg,#fff,rgba(245,243,255,.94));
+        box-shadow:0 8px 22px rgba(71,85,105,.1);
+    }
+}

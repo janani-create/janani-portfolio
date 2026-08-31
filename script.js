@@ -118,7 +118,7 @@ if (contactForm) contactForm.addEventListener("submit", (event) => {
 
 const heroRoleText = document.getElementById("hero-role-text");
 if (heroRoleText) {
-  const roles = ["Web Developer", "Graphic Designer"];
+  const roles = ["Web Developer", "Graphic Designer", "Planning"];
   let roleIndex = 0;
   let characterIndex = roles[0].length;
   let deleting = true;
