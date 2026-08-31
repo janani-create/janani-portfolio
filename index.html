@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Janani's software engineering and web development portfolio.">
     <title>Janani | Software Engineering Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=1">
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme") || "dark";
+    </script>
+    <link rel="stylesheet" href="style.css?v=20260831-3">
     <!-- boxicon css link -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Link Swiper's CSS -->
@@ -14,7 +18,7 @@
 <body>
     <div class="overlay"></div>
     <header>
-        <a href="#home" class="logo" aria-label="Janani portfolio home"><span>JS</span><b>.</b></a>
+        <a href="#home" class="logo" aria-label="Janani portfolio home"><span>Janani Somasiri</span><b>.</b></a>
         <ul class="navlist">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About me</a></li>
@@ -24,7 +28,8 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="right-header">
-            <a href="documents/Janani-Somasiri-CV.pdf" class="btn top-cv" target="_blank" rel="noopener noreferrer">View CV <i class='bx bx-show' aria-hidden="true"></i></a>
+            <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode"><i class='bx bx-sun' aria-hidden="true"></i></button>
+            <a href="#contact" class="btn top-cv">Contact Me</a>
             <div class="menu-icon">
                 <div class="bar"></div>
             </div>
@@ -33,14 +38,14 @@
 
     <section class="home" id="home">
         <div class="hero-info">
-            <p class="hero-hello">HELLO, I'M <span aria-hidden="true">👋</span></p>
-            <h1><span>Janani</span> <strong>Somasiri</strong></h1>
-            <h2 class="hero-role">I'm a <span id="hero-role-text" aria-live="polite">Web Developer</span><b class="typing-cursor" aria-hidden="true"></b></h2>
-            <p class="hero-intro">I build modern, responsive and user-friendly web applications using HTML, CSS, JavaScript, PHP, Laravel and MySQL. I love turning ideas into real digital solutions.</p>
+            <p class="hero-hello"><span aria-hidden="true"></span> HELLO, WELCOME TO MY WORLD</p>
+            <h1>I'm <strong>Janani Somasiri</strong></h1>
+            <h2 class="hero-role">Creative <span id="hero-role-text" aria-live="polite">Web Developer</span><b class="typing-cursor" aria-hidden="true"></b></h2>
+            <p class="hero-intro">A software engineering undergraduate crafting thoughtful, responsive web experiences where clean code meets beautiful design.</p>
 
             <div class="btn-box">
-                <a href="#about" class="btn"><img class="btn-icon" src="images/buttons/about-me.svg" alt="" width="20" height="20"> <span>About Me</span></a>
-                <a href="documents/Janani-Somasiri-CV.pdf" class="btn d-CV" target="_blank" rel="noopener noreferrer"><span>View CV</span> <img class="btn-icon" src="images/buttons/view-cv.svg" alt="" width="20" height="20"></a>
+                <a href="documents/Janani-Somasiri-CV.pdf" class="btn" target="_blank" rel="noopener noreferrer"><i class='bx bx-show' aria-hidden="true"></i><span>View CV</span></a>
+                <a href="#contact" class="btn d-CV"><i class='bx bx-envelope' aria-hidden="true"></i><span>Contact Me</span></a>
             </div>
 
             <div class="social-media">
@@ -394,6 +399,6 @@
      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <!-- mixitup cdn js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <script src="script.js?v=20260825-2"></script>
+    <script src="script.js?v=20260827-1"></script>
 </body>
 </html>
