@@ -214,8 +214,8 @@ if (skillsShowcase) {
     skillsShowcase.style.setProperty('grid-template-columns', singleColumn ? '1fr' : 'minmax(0, 1.08fr) minmax(420px, .92fr)', 'important');
     intro?.style.setProperty('display', 'contents', 'important');
     technical?.style.setProperty('display', 'grid', 'important');
-    technical?.style.setProperty('grid-template-columns', mobile ? '1fr' : 'repeat(2, minmax(0, 1fr))', 'important');
-    professional?.style.setProperty('display', 'block', 'important');
+    technical?.style.setProperty('grid-template-columns', '1fr', 'important');
+    professional?.style.setProperty('display', 'grid', 'important');
     tools?.style.setProperty('display', 'grid', 'important');
     tools?.style.setProperty('height', 'auto', 'important');
     tools?.style.setProperty('grid-template-columns', mobile ? 'repeat(2, 1fr)' : singleColumn ? 'repeat(3, 1fr)' : 'repeat(6, minmax(100px, 1fr))', 'important');
@@ -228,4 +228,147 @@ if (skillsShowcase) {
 
   enforceSkillsLayout();
   window.addEventListener('resize', enforceSkillsLayout, { passive: true });
+}
+
+// Count the About statistics once when they enter the viewport.
+const aboutStatNumbers = [...document.querySelectorAll('.about-stats strong')];
+if (aboutStatNumbers.length) {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const animateAboutNumber = (element) => {
+    if (element.dataset.counted === 'true') return;
+    element.dataset.counted = 'true';
+
+    const original = element.textContent.trim();
+    const target = Number.parseInt(original, 10);
+    const suffix = original.replace(/[\d,.]/g, '');
+    if (!Number.isFinite(target) || reducedMotion) return;
+
+    const duration = 1450;
+    const start = performance.now();
+    element.classList.add('is-counting');
+
+    const update = (time) => {
+      const progress = Math.min((time - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      element.textContent = `${Math.round(target * eased)}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        element.textContent = original;
+        element.classList.remove('is-counting');
+        element.classList.add('count-finished');
+      }
+    };
+
+    requestAnimationFrame(update);
+  };
+
+  const aboutStatsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      aboutStatNumbers.forEach((number, index) => {
+        window.setTimeout(() => animateAboutNumber(number), index * 130);
+      });
+      observer.disconnect();
+    });
+  }, { threshold: 0.35 });
+
+  aboutStatsObserver.observe(aboutStatNumbers[0].closest('.about-stats'));
+}
+
+// Animate technical percentages and summary figures when Skills becomes visible.
+const skillsCounterSection = document.querySelector('.skills-showcase');
+if (skillsCounterSection) {
+  const skillNumbers = [...skillsCounterSection.querySelectorAll('.skill-row > div > p strong, .skills-summary > div > b')];
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const animateSkillNumber = (element) => {
+    if (element.dataset.skillCounted === 'true') return;
+    element.dataset.skillCounted = 'true';
+
+    const original = element.textContent.trim();
+    const target = Number.parseInt(original, 10);
+    const suffix = original.replace(/[\d,.]/g, '');
+    if (!Number.isFinite(target) || reducedMotion) return;
+
+    const start = performance.now();
+    const duration = 1250;
+    element.classList.add('is-skill-counting');
+
+    const update = (time) => {
+      const progress = Math.min((time - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      element.textContent = `${Math.round(target * eased)}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        element.textContent = original;
+        element.classList.remove('is-skill-counting');
+        element.classList.add('skill-count-finished');
+      }
+    };
+
+    requestAnimationFrame(update);
+  };
+
+  const skillsCounterObserver = new IntersectionObserver((entries, observer) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    skillsCounterSection.classList.add('skills-counting');
+    skillNumbers.forEach((number, index) => {
+      window.setTimeout(() => animateSkillNumber(number), index * 90);
+    });
+    window.setTimeout(() => skillsCounterSection.classList.remove('skills-counting'), 1900);
+    observer.disconnect();
+  }, { threshold: 0.18 });
+
+  skillsCounterObserver.observe(skillsCounterSection);
+}
+
+// Show certificate images inside the portfolio instead of opening raw PDF tabs.
+const certificateModal = document.getElementById('certificate-modal');
+if (certificateModal) {
+  const modalImage = certificateModal.querySelector('.certificate-modal-image img');
+  const modalTitle = certificateModal.querySelector('#certificate-modal-title');
+  const modalPdf = certificateModal.querySelector('.certificate-modal-pdf');
+  const closeButtons = certificateModal.querySelectorAll('.certificate-modal-close, .certificate-modal-back');
+  let lastCertificateTrigger = null;
+
+  const closeCertificateModal = () => {
+    certificateModal.classList.remove('is-open');
+    document.body.classList.remove('certificate-view-open');
+    window.setTimeout(() => { certificateModal.hidden = true; }, 220);
+    lastCertificateTrigger?.focus();
+  };
+
+  document.querySelectorAll('.certificate-card > a').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const card = link.closest('.certificate-card');
+      const preview = card?.querySelector('.certificate-preview img');
+      const title = card?.querySelector('.certificate-info h3')?.textContent?.trim() || 'Certificate';
+      if (!preview || !modalImage || !modalTitle || !modalPdf) return;
+
+      lastCertificateTrigger = link;
+      modalImage.src = preview.currentSrc || preview.src;
+      modalImage.alt = preview.alt;
+      modalTitle.textContent = title;
+      const pdfFileName = new URL(link.href, window.location.href).pathname.split('/').pop();
+      modalPdf.href = `certificate-viewer.html?file=${encodeURIComponent(pdfFileName)}&title=${encodeURIComponent(title)}`;
+      certificateModal.hidden = false;
+      document.body.classList.add('certificate-view-open');
+      requestAnimationFrame(() => certificateModal.classList.add('is-open'));
+      certificateModal.querySelector('.certificate-modal-close')?.focus();
+    });
+  });
+
+  closeButtons.forEach((button) => button.addEventListener('click', closeCertificateModal));
+  certificateModal.addEventListener('click', (event) => {
+    if (event.target === certificateModal) closeCertificateModal();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !certificateModal.hidden) closeCertificateModal();
+  });
 }
