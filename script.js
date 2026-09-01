@@ -231,6 +231,88 @@ if (skillsShowcase) {
 }
 
 // Count the About statistics once when they enter the viewport.
+// Show practical details for each professional skill.
+const professionalSkillCards = [...document.querySelectorAll('.professional-skills .professional-row')];
+if (professionalSkillCards.length) {
+  const skillContent = {
+    'Problem Solving': ['I break complex problems into clear, manageable steps.', 'Debugging issues, comparing solutions and selecting the most reliable approach.'],
+    'Communication': ['I explain ideas clearly and listen carefully to feedback.', 'Sharing progress, documenting work and discussing requirements with a team or client.'],
+    'Time Management': ['I organize tasks by priority and work toward realistic deadlines.', 'Planning milestones, tracking progress and completing important work on time.'],
+    'Teamwork': ['I collaborate respectfully and contribute toward shared goals.', 'Coordinating tasks, supporting team members and combining ideas effectively.'],
+    'Adaptability': ['I learn quickly and stay productive when requirements change.', 'Working with new tools, updated designs and unexpected project challenges.'],
+    'Creativity': ['I explore thoughtful ideas that balance appearance and usability.', 'Creating engaging interfaces, visual concepts and alternative solutions.'],
+    'Critical Thinking': ['I evaluate information carefully before making decisions.', 'Checking assumptions, identifying risks and choosing evidence-based solutions.'],
+    'Organization': ['I keep files, tasks and project information structured and accessible.', 'Maintaining clear folders, reusable components and consistent development workflows.']
+  };
+
+  const modal = document.createElement('div');
+  modal.className = 'professional-dialog';
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="professional-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="professional-dialog-title">
+      <button class="professional-dialog-close" type="button" aria-label="Close skill details"><i class="bx bx-x"></i></button>
+      <span class="professional-dialog-icon" aria-hidden="true"></span>
+      <span class="professional-dialog-kicker">Professional skill</span>
+      <h2 id="professional-dialog-title"></h2>
+      <div class="professional-dialog-level"><span>Strength</span><strong></strong><i><b></b></i></div>
+      <p class="professional-dialog-description"></p>
+      <div class="professional-dialog-example"><i class="bx bx-bulb"></i><p><strong>In practice</strong><span></span></p></div>
+    </div>`;
+  document.body.appendChild(modal);
+
+  const closeButton = modal.querySelector('.professional-dialog-close');
+  const title = modal.querySelector('#professional-dialog-title');
+  const icon = modal.querySelector('.professional-dialog-icon');
+  const levelText = modal.querySelector('.professional-dialog-level strong');
+  const levelBar = modal.querySelector('.professional-dialog-level b');
+  const description = modal.querySelector('.professional-dialog-description');
+  const example = modal.querySelector('.professional-dialog-example span');
+  let activeSkill = null;
+
+  const closeProfessionalDialog = () => {
+    modal.classList.remove('is-open');
+    document.body.classList.remove('professional-dialog-open');
+    window.setTimeout(() => { modal.hidden = true; }, 200);
+    activeSkill?.focus();
+  };
+
+  const openProfessionalDialog = (card) => {
+    const name = card.querySelector('b')?.textContent.trim() || 'Professional Skill';
+    const level = card.querySelector('strong')?.textContent.trim() || '85%';
+    const sourceIcon = card.querySelector('.professional-icon img');
+    const content = skillContent[name] || ['A valuable professional capability.', 'Applied throughout planning and project delivery.'];
+    activeSkill = card;
+    title.textContent = name;
+    levelText.textContent = level;
+    levelBar.style.width = level;
+    description.textContent = content[0];
+    example.textContent = content[1];
+    icon.innerHTML = sourceIcon ? `<img src="${sourceIcon.src}" alt="">` : '<i class="bx bx-star"></i>';
+    modal.hidden = false;
+    document.body.classList.add('professional-dialog-open');
+    requestAnimationFrame(() => modal.classList.add('is-open'));
+    closeButton.focus();
+  };
+
+  professionalSkillCards.forEach((card) => {
+    const name = card.querySelector('b')?.textContent.trim() || 'professional skill';
+    card.tabIndex = 0;
+    card.setAttribute('aria-label', `View details about ${name}`);
+    card.addEventListener('click', () => openProfessionalDialog(card));
+    card.addEventListener('keydown', (event) => {
+      if (event.target !== card || (event.key !== 'Enter' && event.key !== ' ')) return;
+      event.preventDefault();
+      openProfessionalDialog(card);
+    });
+  });
+
+  closeButton.addEventListener('click', closeProfessionalDialog);
+  modal.addEventListener('click', (event) => { if (event.target === modal) closeProfessionalDialog(); });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !modal.hidden) closeProfessionalDialog();
+  });
+}
+
 const aboutStatNumbers = [...document.querySelectorAll('.about-stats strong')];
 if (aboutStatNumbers.length) {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -326,6 +408,129 @@ if (skillsCounterSection) {
 
   skillsCounterObserver.observe(skillsCounterSection);
 }
+
+// Keep certificates ordered from newest to oldest on both certificate galleries.
+// Open an accessible details dialog when a service card is selected.
+const serviceCards = [...document.querySelectorAll('.services .servicesItem')];
+if (serviceCards.length) {
+  const serviceDetails = {
+    'Web Development': ['Responsive business and portfolio websites', 'Clean, maintainable front-end code', 'Cross-browser and mobile support'],
+    'Responsive Design': ['Mobile, tablet and desktop layouts', 'Flexible grids and readable typography', 'Touch-friendly navigation and controls'],
+    'UI/UX Design': ['User-friendly page structure', 'Wireframes and interface planning', 'Consistent visual design systems'],
+    'Performance Optimization': ['Page-speed and asset improvements', 'Responsive image optimization', 'Cleaner loading and interaction performance'],
+    'Database Management': ['Well-structured relational databases', 'Optimized queries and data workflows', 'Reliable CRUD operations and reporting'],
+    'API Development': ['RESTful endpoint development', 'Front-end and back-end integration', 'Structured validation and error handling'],
+    'Bug Fixing & Maintenance': ['Interface and functionality troubleshooting', 'Responsive layout corrections', 'Ongoing improvements and updates'],
+    'Deployment': ['Production-ready project setup', 'Database and environment configuration', 'Launch checks and post-deployment support']
+  };
+
+  const dialog = document.createElement('div');
+  dialog.className = 'service-dialog';
+  dialog.hidden = true;
+  dialog.innerHTML = `
+    <div class="service-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="service-dialog-title">
+      <button class="service-dialog-close" type="button" aria-label="Close service details"><i class="bx bx-x"></i></button>
+      <span class="service-dialog-icon" aria-hidden="true"></span>
+      <span class="service-dialog-kicker">Service details</span>
+      <h2 id="service-dialog-title"></h2>
+      <p class="service-dialog-copy"></p>
+      <ul class="service-dialog-list"></ul>
+      <a class="service-dialog-action" href="#contact"><i class="bx bx-message-rounded-dots"></i> Discuss this service <span aria-hidden="true">&rarr;</span></a>
+    </div>`;
+  document.body.appendChild(dialog);
+
+  const title = dialog.querySelector('#service-dialog-title');
+  const copy = dialog.querySelector('.service-dialog-copy');
+  const list = dialog.querySelector('.service-dialog-list');
+  const icon = dialog.querySelector('.service-dialog-icon');
+  const closeButton = dialog.querySelector('.service-dialog-close');
+  let activeCard = null;
+
+  const closeServiceDialog = (restoreFocus = true) => {
+    dialog.classList.remove('is-open');
+    document.body.classList.remove('service-dialog-open');
+    window.setTimeout(() => { dialog.hidden = true; }, 200);
+    if (restoreFocus) activeCard?.focus();
+  };
+
+  const openServiceDialog = (card) => {
+    const serviceTitle = card.querySelector('h3')?.textContent.trim() || 'Service';
+    const serviceCopy = card.querySelector('p')?.textContent.trim() || '';
+    const serviceIcon = card.querySelector('.icon-services img');
+    activeCard = card;
+    title.textContent = serviceTitle;
+    copy.textContent = serviceCopy;
+    icon.innerHTML = serviceIcon ? `<img src="${serviceIcon.src}" alt="">` : '<i class="bx bx-star"></i>';
+    list.innerHTML = (serviceDetails[serviceTitle] || []).map((item) => `<li><i class="bx bx-check"></i><span>${item}</span></li>`).join('');
+    dialog.classList.toggle('is-orange', card.classList.contains('service-orange'));
+    dialog.hidden = false;
+    document.body.classList.add('service-dialog-open');
+    requestAnimationFrame(() => dialog.classList.add('is-open'));
+    closeButton.focus();
+  };
+
+  serviceCards.forEach((card) => {
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `View details about ${card.querySelector('h3')?.textContent.trim() || 'this service'}`);
+    card.addEventListener('click', () => openServiceDialog(card));
+    card.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      openServiceDialog(card);
+    });
+  });
+
+  closeButton.addEventListener('click', closeServiceDialog);
+  dialog.addEventListener('click', (event) => { if (event.target === dialog) closeServiceDialog(); });
+  dialog.querySelector('.service-dialog-action').addEventListener('click', () => closeServiceDialog(false));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !dialog.hidden) closeServiceDialog();
+  });
+}
+
+document.querySelectorAll('.certificate-grid').forEach((grid) => {
+  const cards = [...grid.querySelectorAll('.certificate-card')];
+  cards
+    .sort((firstCard, secondCard) => {
+      const firstDate = Date.parse(firstCard.querySelector('time')?.textContent.trim() || '') || 0;
+      const secondDate = Date.parse(secondCard.querySelector('time')?.textContent.trim() || '') || 0;
+      return secondDate - firstDate;
+    })
+    .forEach((card) => grid.appendChild(card));
+});
+
+const getCertificateCategory = (card) => {
+  const title = card.querySelector('.certificate-info h3')?.textContent.toLowerCase() || '';
+  if (title.includes('ai/ml') || title.includes('tensorflow')) return 'ai';
+  if (title.includes('graphic design') || title.includes('web design') || title === 'figma') return 'design';
+  if (title.includes('project management') || title.includes('appreciation')) return 'management';
+  if (title.includes('ict') || title.includes('office applications')) return 'ict';
+  if (title.includes('python') || title.includes('c programming') || title.includes('visual basic')) return 'programming';
+  return 'other';
+};
+
+document.querySelectorAll('.certificates').forEach((section) => {
+  const grid = section.querySelector('.certificate-grid');
+  const filters = section.querySelectorAll('[data-certificate-filter]');
+  if (!grid || !filters.length) return;
+
+  const cards = [...grid.querySelectorAll('.certificate-card')];
+  cards.forEach((card) => { card.dataset.category = getCertificateCategory(card); });
+
+  filters.forEach((button) => button.addEventListener('click', () => {
+    const category = button.dataset.certificateFilter;
+    filters.forEach((filter) => {
+      const selected = filter === button;
+      filter.classList.toggle('active', selected);
+      filter.setAttribute('aria-pressed', String(selected));
+    });
+    grid.classList.toggle('is-filtering', category !== 'all');
+    cards.forEach((card) => {
+      card.classList.toggle('is-filter-hidden', category !== 'all' && card.dataset.category !== category);
+    });
+  }));
+});
 
 // Show certificate images inside the portfolio instead of opening raw PDF tabs.
 const certificateModal = document.getElementById('certificate-modal');
