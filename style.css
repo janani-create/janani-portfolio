@@ -6770,3 +6770,160 @@ html[data-theme="light"] .professional-dialog{background:rgba(226,232,240,.8)}ht
 .service-dialog-icon>img{display:block;width:42px;height:42px;object-fit:contain}
 html[data-theme="light"] .services .icon-services>img{filter:none!important}
 @media(max-width:700px){.services .icon-services>img{width:52px;height:52px}}
+
+/* Two-way section navigator with a live page-progress rail. */
+#progress.scroll-navigator{
+    --scroll-percent:0%;
+    position:fixed!important;
+    right:18px!important;
+    bottom:22px!important;
+    z-index:1000!important;
+    display:none;
+    width:54px!important;
+    height:auto!important;
+    padding:6px!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    gap:7px!important;
+    color:inherit!important;
+    border:1px solid rgba(148,163,184,.2)!important;
+    border-radius:999px!important;
+    background:rgba(8,15,29,.88)!important;
+    box-shadow:0 16px 38px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.06)!important;
+    backdrop-filter:blur(14px)!important;
+    transform:none!important;
+}
+#progress.scroll-navigator:hover{transform:translateY(-3px)!important;box-shadow:0 20px 42px rgba(0,0,0,.34)!important}
+.scroll-navigator button{
+    display:grid;
+    width:42px;
+    height:42px;
+    padding:0;
+    place-items:center;
+    color:#fff;
+    border:0;
+    border-radius:50%;
+    cursor:pointer;
+    transition:transform .22s ease,box-shadow .22s ease,opacity .22s ease;
+}
+.scroll-navigator button i{font-size:1.75rem;line-height:1}
+#scroll-up{background:linear-gradient(145deg,#8b5cf6,#6d28d9);box-shadow:0 7px 17px rgba(124,58,237,.34)}
+#scroll-down{background:linear-gradient(145deg,#fb923c,#ea580c);box-shadow:0 7px 17px rgba(234,88,12,.3)}
+.scroll-navigator button:hover:not(:disabled){transform:scale(1.08)}
+.scroll-navigator button:active:not(:disabled){transform:scale(.94)}
+.scroll-navigator button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.scroll-navigator button:disabled{opacity:.3;cursor:not-allowed;box-shadow:none}
+#progress.scroll-navigator #progress-value{
+    position:relative!important;
+    display:block!important;
+    width:5px!important;
+    height:28px!important;
+    min-height:28px!important;
+    padding:0!important;
+    overflow:hidden!important;
+    color:transparent!important;
+    border:0!important;
+    border-radius:99px!important;
+    background:rgba(148,163,184,.22)!important;
+    box-shadow:none!important;
+    -webkit-text-fill-color:transparent!important;
+}
+#progress-value>b{position:absolute;left:0;right:0;top:0;height:var(--scroll-percent);border-radius:inherit;background:linear-gradient(#8b5cf6,#f97316);transition:height .2s ease}
+html[data-theme="light"] #progress.scroll-navigator{border-color:#d8e0eb!important;background:rgba(255,255,255,.94)!important;box-shadow:0 15px 35px rgba(30,41,59,.16)!important}
+html[data-theme="light"] #progress.scroll-navigator #progress-value{background:#e2e8f0!important}
+@media(max-width:600px){#progress.scroll-navigator{right:10px!important;bottom:14px!important;width:48px!important;padding:5px!important;gap:5px!important}.scroll-navigator button{width:38px;height:38px}.scroll-navigator button i{font-size:1.55rem}#progress.scroll-navigator #progress-value{height:22px!important;min-height:22px!important}}
+@media(prefers-reduced-motion:reduce){#progress-value>b,.scroll-navigator button{transition:none}}
+
+/* Project-specific mini logos replace generic title glyphs. */
+.portfolio-content h3{align-items:center!important;line-height:1.25!important}
+.project-icon{
+    width:54px!important;
+    height:54px!important;
+    flex:0 0 54px!important;
+    overflow:visible!important;
+    border:0!important;
+    border-radius:16px!important;
+    background:transparent!important;
+    box-shadow:none!important;
+}
+.project-icon>img{
+    display:block;
+    width:52px;
+    height:52px;
+    object-fit:contain;
+    filter:drop-shadow(0 8px 15px rgba(124,58,237,.22));
+    transition:transform .28s ease,filter .28s ease;
+}
+.portfolio-box:nth-child(2) .project-icon>img{filter:drop-shadow(0 8px 15px rgba(249,115,22,.2))}
+.portfolio-box:hover .project-icon>img{transform:translateY(-3px) rotate(-3deg) scale(1.06);filter:drop-shadow(0 11px 20px rgba(124,58,237,.3))}
+.portfolio-box:nth-child(2):hover .project-icon>img{filter:drop-shadow(0 11px 20px rgba(249,115,22,.28))}
+.project-type{margin-left:64px!important}
+html[data-theme="light"] .project-icon>img{filter:drop-shadow(0 7px 13px rgba(76,52,130,.18))}
+html[data-theme="light"] .portfolio-box:nth-child(2) .project-icon>img{filter:drop-shadow(0 7px 13px rgba(194,65,12,.16))}
+@media(max-width:600px){.project-icon{width:48px!important;height:48px!important;flex-basis:48px!important}.project-icon>img{width:46px;height:46px}.project-type{margin-left:58px!important}}
+@media(prefers-reduced-motion:reduce){.project-icon>img{transition:none}}
+
+/* Functional project categories while retaining every existing filter and card. */
+.project-filters{max-width:940px!important;flex-wrap:wrap!important}
+.project-filters button{transition:color .22s ease,border-color .22s ease,background .22s ease,transform .22s ease!important}
+.project-filters button:hover{color:#fff!important;border-color:#8b5cf6!important;background:rgba(124,58,237,.15)!important;transform:translateY(-2px)}
+.project-filters button.active{color:#fff!important;border-color:#9c4af5!important;background:linear-gradient(110deg,rgba(124,58,237,.3),rgba(124,58,237,.12))!important;box-shadow:0 7px 18px rgba(124,58,237,.16)}
+.portfolio-box.is-project-hidden{display:none!important}
+.portfolio-box.is-project-match{display:flex!important}
+html[data-theme="light"] .project-filters button{color:#526176!important;border-color:#d8e0eb!important;background:#fff!important;box-shadow:0 4px 12px rgba(30,41,59,.04)}
+html[data-theme="light"] .project-filters button:hover{color:#6d28d9!important;border-color:#a78bfa!important;background:#f5f2ff!important}
+html[data-theme="light"] .project-filters button.active{color:#fff!important;border-color:#7c3aed!important;background:#7c3aed!important;box-shadow:0 7px 18px rgba(124,58,237,.2)}
+@media(max-width:650px){.project-filters{flex-wrap:nowrap!important;padding-bottom:7px;scrollbar-width:thin}.project-filters button{flex:0 0 auto}}
+.project-portfolio .project-icon{font-size:0!important;background:url("images/branding/janani-mark.svg") center/52px 52px no-repeat!important}
+@media(max-width:600px){.project-portfolio .project-icon{background-size:46px 46px!important}}
+
+/* Branded footer with reliable contrast in both themes. */
+footer{
+    position:relative!important;
+    width:100%!important;
+    min-height:104px!important;
+    margin:0!important;
+    padding:34px 24px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    overflow:hidden!important;
+    color:#aeb8c7!important;
+    border:0!important;
+    background:linear-gradient(135deg,#080d1a,#0b1425)!important;
+    box-shadow:inset 0 1px rgba(255,255,255,.05)!important;
+}
+footer::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:2px;
+    background:linear-gradient(90deg,transparent 5%,#8b5cf6 35%,#d946a0 62%,#f97316 85%,transparent 98%);
+}
+footer::after{
+    content:"JS";
+    position:absolute;
+    right:4%;
+    bottom:-26px;
+    color:rgba(255,255,255,.025);
+    font-size:6rem;
+    font-weight:800;
+    line-height:1;
+    pointer-events:none;
+}
+footer p{position:relative;z-index:1;margin:0!important;color:#aeb8c7!important;font-size:.88rem!important;line-height:1.6!important;letter-spacing:.01em}
+footer p span{
+    color:transparent!important;
+    background:linear-gradient(90deg,#a78bfa,#e04b9c,#fb923c)!important;
+    -webkit-background-clip:text!important;
+    background-clip:text!important;
+    -webkit-text-fill-color:transparent!important;
+    font-weight:700!important;
+}
+html[data-theme="light"] footer{color:#526176!important;background:linear-gradient(135deg,#fff,#f3f6fb)!important;box-shadow:inset 0 1px #dbe3ee!important}
+html[data-theme="light"] footer p{color:#526176!important}
+html[data-theme="light"] footer::after{color:rgba(76,29,149,.035)}
+.footer-brand-mark{position:relative;z-index:1;width:42px;height:42px;margin-right:14px;flex:0 0 42px;filter:drop-shadow(0 7px 14px rgba(124,58,237,.22))}
+@media(max-width:600px){footer{min-height:92px!important;padding:28px 58px 28px 18px!important}footer p{font-size:.76rem!important}footer::after{right:2%;font-size:5rem}}

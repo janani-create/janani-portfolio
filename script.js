@@ -79,17 +79,31 @@ function playSkills() {
 }
 
 const progress = document.getElementById("progress");
-if (progress) progress.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+const scrollUpButton = document.getElementById("scroll-up");
+const scrollDownButton = document.getElementById("scroll-down");
 const menuLinks = [...document.querySelectorAll("header ul li a")];
 const sections = [...document.querySelectorAll("section[id]")];
+const getScrollStops = () => [...new Set([0, ...sections.map((section) => Math.max(0, section.offsetTop - 24)), Math.max(0, document.documentElement.scrollHeight - innerHeight)])].sort((a, b) => a - b);
+const moveBetweenSections = (direction) => {
+  const position = window.scrollY;
+  const stops = getScrollStops();
+  const target = direction > 0
+    ? stops.find((stop) => stop > position + 40) ?? stops.at(-1)
+    : [...stops].reverse().find((stop) => stop < position - 40) ?? 0;
+  window.scrollTo({ top: target, behavior: "smooth" });
+};
+scrollUpButton?.addEventListener("click", () => moveBetweenSections(-1));
+scrollDownButton?.addEventListener("click", () => moveBetweenSections(1));
 function updateOnScroll() {
   playSkills();
   const position = document.documentElement.scrollTop;
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   if (progress) {
     const percent = height > 0 ? Math.round(position * 100 / height) : 0;
-    progress.style.display = position > 100 ? "grid" : "none";
-    progress.style.background = `conic-gradient(#ffb51b ${percent}%, rgba(255,181,27,.16) ${percent}%)`;
+    progress.style.display = height > 80 ? "flex" : "none";
+    progress.style.setProperty("--scroll-percent", `${percent}%`);
+    scrollUpButton?.toggleAttribute("disabled", position <= 8);
+    scrollDownButton?.toggleAttribute("disabled", position >= height - 8);
   }
   let activeIndex = 0;
   sections.forEach((section, index) => { if (window.scrollY + 120 >= section.offsetTop) activeIndex = index; });
@@ -232,6 +246,25 @@ if (skillsShowcase) {
 
 // Count the About statistics once when they enter the viewport.
 // Show practical details for each professional skill.
+const projectFilterButtons = [...document.querySelectorAll('[data-project-filter]')];
+const projectCards = [...document.querySelectorAll('.portfolio-gallery .portfolio-box[data-project-categories]')];
+if (projectFilterButtons.length && projectCards.length) {
+  projectFilterButtons.forEach((button) => button.addEventListener('click', () => {
+    const selectedCategory = button.dataset.projectFilter;
+    projectFilterButtons.forEach((filter) => {
+      const isSelected = filter === button;
+      filter.classList.toggle('active', isSelected);
+      filter.setAttribute('aria-pressed', String(isSelected));
+    });
+    projectCards.forEach((card) => {
+      const categories = card.dataset.projectCategories.split(/\s+/);
+      const matches = selectedCategory === 'all' || categories.includes(selectedCategory);
+      card.classList.toggle('is-project-hidden', !matches);
+      card.classList.toggle('is-project-match', selectedCategory !== 'all' && matches);
+    });
+  }));
+}
+
 const professionalSkillCards = [...document.querySelectorAll('.professional-skills .professional-row')];
 if (professionalSkillCards.length) {
   const skillContent = {

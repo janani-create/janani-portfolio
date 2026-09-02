@@ -9,7 +9,7 @@
     <script>
       document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme") || "dark";
     </script>
-    <link rel="stylesheet" href="style.css?v=20260902-7">
+    <link rel="stylesheet" href="style.css?v=20260902-12">
     <!-- boxicon css link -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Link Swiper's CSS -->
@@ -155,26 +155,26 @@
             <p>Here are some of the projects I have worked on.<br>Each project is a unique piece of my learning and experience.</p>
         </div>
 
-        <div class="project-filters" aria-label="Project categories"><button class="active" type="button">All</button><button type="button">Web Development</button><button type="button">UI/UX Design</button><button type="button">Tools &amp; Systems</button></div>
+        <div class="project-filters" aria-label="Project categories"><button class="active" type="button" data-project-filter="all" aria-pressed="true">All</button><button type="button" data-project-filter="web" aria-pressed="false">Web Development</button><button type="button" data-project-filter="uiux" aria-pressed="false">UI/UX Design</button><button type="button" data-project-filter="systems" aria-pressed="false">Tools &amp; Systems</button><button type="button" data-project-filter="ecommerce" aria-pressed="false">E-Commerce</button><button type="button" data-project-filter="management" aria-pressed="false">Management Systems</button></div>
 
         <div class="portfolio-gallery">
-            <article class="portfolio-box project-permit">
+            <article class="portfolio-box project-permit" data-project-categories="web systems management">
                 <div class="portfolio-img"><img src="images/projects/slpa-permit-system.png" alt="SLPA Galle Permit System login page preview" loading="lazy"></div>
-                <div class="portfolio-content"><h3><span class="project-icon">&lt;/&gt;</span> SLPA Permit System (Galle)</h3><strong class="project-type">Web Application</strong><p>A web-based permit management system for Sri Lanka Ports Authority to manage temporary, monthly and vehicle permits, reports and more.</p><span class="project-mark"></span><div class="project-tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span></div><div class="project-actions"><a href="http://localhost/port-entry-permit/public/login" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open the local SLPA Permit System login"><i class='bx bx-show'></i> View Project</a><a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer" class="project-link"><i class='bx bxl-github'></i> View Code</a></div></div>
+                <div class="portfolio-content"><h3><span class="project-icon"><img src="images/projects/slpa-permit-logo.svg" alt="" width="48" height="48"></span> SLPA Permit System (Galle)</h3><strong class="project-type">Web Application</strong><p>A web-based permit management system for Sri Lanka Ports Authority to manage temporary, monthly and vehicle permits, reports and more.</p><span class="project-mark"></span><div class="project-tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span></div><div class="project-actions"><a href="http://localhost/port-entry-permit/public/login" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open the local SLPA Permit System login"><i class='bx bx-show'></i> View Project</a><a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer" class="project-link"><i class='bx bxl-github'></i> View Code</a></div></div>
             </article>
-            <article class="portfolio-box project-store">
+            <article class="portfolio-box project-store" data-project-categories="web uiux ecommerce">
                 <div class="portfolio-img"><img src="images/projects/cey-charm-login.png" alt="Cey Charm jewellery website login page preview" loading="lazy"></div>
-                <div class="portfolio-content"><h3><span class="project-icon">◎</span> Cey Charm Jewellery Website</h3><strong class="project-type">E-Commerce Website</strong><p>A full-stack e-commerce website for a jewellery business with product browsing, cart, checkout and secure payments.</p><span class="project-mark"></span><div class="project-tags"><span>Laravel</span><span>MySQL</span><span>JavaScript</span><span>CSS</span></div><div class="project-actions"><a href="http://localhost/Cey-Charm-Jewelry-Website/public/login" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open the local Cey Charm Jewellery Website login"><i class='bx bx-show'></i> View Project</a><a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer" class="project-link"><i class='bx bxl-github'></i> View Code</a></div></div>
+                <div class="portfolio-content"><h3><span class="project-icon"><img src="images/projects/cey-charm-logo.svg" alt="" width="48" height="48"></span> Cey Charm Jewellery Website</h3><strong class="project-type">E-Commerce Website</strong><p>A full-stack e-commerce website for a jewellery business with product browsing, cart, checkout and secure payments.</p><span class="project-mark"></span><div class="project-tags"><span>Laravel</span><span>MySQL</span><span>JavaScript</span><span>CSS</span></div><div class="project-actions"><a href="http://localhost/Cey-Charm-Jewelry-Website/public/login" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open the local Cey Charm Jewellery Website login"><i class='bx bx-show'></i> View Project</a><a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer" class="project-link"><i class='bx bxl-github'></i> View Code</a></div></div>
             </article>
-            <article class="portfolio-box project-examination">
+            <article class="portfolio-box project-examination" data-project-categories="web systems management">
                 <div class="portfolio-img"><img src="images/projects/sliate-examination-portal.png" alt="SLIATE online examination management system portal preview" loading="lazy"></div>
-                <div class="portfolio-content"><h3><span class="project-icon"><i class='bx bx-book-content'></i></span> SLIATE Examination Portal</h3><strong class="project-type">Online Examination System</strong><p>A role-based examination management portal for students, lecturers and administrators to manage applications, schedules, results and academic services.</p><span class="project-mark"></span><div class="project-tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Bootstrap</span></div><div class="project-actions"><a href="http://localhost/SLIATE-exam-apply-main/index.php" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open the local SLIATE Examination Portal"><i class='bx bx-show'></i> View Project</a><a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer" class="project-link"><i class='bx bxl-github'></i> View Code</a></div></div>
+                <div class="portfolio-content"><h3><span class="project-icon"><img src="images/projects/sliate-exam-logo.svg" alt="" width="48" height="48"></span> SLIATE Examination Portal</h3><strong class="project-type">Online Examination System</strong><p>A role-based examination management portal for students, lecturers and administrators to manage applications, schedules, results and academic services.</p><span class="project-mark"></span><div class="project-tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Bootstrap</span></div><div class="project-actions"><a href="http://localhost/SLIATE-exam-apply-main/index.php" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open the local SLIATE Examination Portal"><i class='bx bx-show'></i> View Project</a><a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer" class="project-link"><i class='bx bxl-github'></i> View Code</a></div></div>
             </article>
-            <article class="portfolio-box project-library">
+            <article class="portfolio-box project-library" data-project-categories="web systems management">
                 <div class="portfolio-img"><img src="images/projects/library-management-login.png" alt="Library Management System login page preview" loading="lazy"></div>
-                <div class="portfolio-content"><h3><span class="project-icon">▤</span> Library Management System</h3><strong class="project-type">Web Application</strong><p>A system to manage books, members, issue and return processes, categories and reports for a library efficiently.</p><span class="project-mark"></span><div class="project-tags"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>JavaScript</span></div><div class="project-actions"><a href="http://localhost/library-management-system/auth/login.php" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open the local Library Management System login"><i class='bx bx-show'></i> View Project</a><a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer" class="project-link"><i class='bx bxl-github'></i> View Code</a></div></div>
+                <div class="portfolio-content"><h3><span class="project-icon"><img src="images/projects/library-logo.svg" alt="" width="48" height="48"></span> Library Management System</h3><strong class="project-type">Web Application</strong><p>A system to manage books, members, issue and return processes, categories and reports for a library efficiently.</p><span class="project-mark"></span><div class="project-tags"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>JavaScript</span></div><div class="project-actions"><a href="http://localhost/library-management-system/auth/login.php" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open the local Library Management System login"><i class='bx bx-show'></i> View Project</a><a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer" class="project-link"><i class='bx bxl-github'></i> View Code</a></div></div>
             </article>
-            <article class="portfolio-box project-portfolio">
+            <article class="portfolio-box project-portfolio" data-project-categories="web uiux">
                 <div class="portfolio-img"><img src="assets/project.svg" alt="Personal portfolio website preview" loading="lazy"></div>
                 <div class="portfolio-content"><h3><span class="project-icon">●</span> Personal Portfolio Website</h3><p>My personal portfolio website showcasing my skills, services, projects, and development journey.</p><span class="project-mark"></span><div class="project-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div><a href="#home" class="project-link">View Project <span>&rarr;</span></a></div>
             </article>
@@ -426,14 +426,14 @@
             </section>
             
     <footer>
-        <p>Copyright &copy; 2026 by <span>Janani</span> | All rights reserved.</p>
+        <img class="footer-brand-mark" src="images/branding/janani-mark.svg" alt="" width="42" height="42"><p>Copyright &copy; 2026 by <span>Janani</span> | All rights reserved.</p>
     </footer>
 
-    <div id="progress">
-        <span id="progress-value">
-            <i class='bx bxs-chevrons-up' ></i>
-        </span>
-    </div>
+    <nav id="progress" class="scroll-navigator" aria-label="Page section navigation">
+        <button id="scroll-up" type="button" aria-label="Go to previous section" title="Previous section"><i class='bx bx-chevron-up' aria-hidden="true"></i></button>
+        <span id="progress-value" aria-hidden="true"><b></b></span>
+        <button id="scroll-down" type="button" aria-label="Go to next section" title="Next section"><i class='bx bx-chevron-down' aria-hidden="true"></i></button>
+    </nav>
 
     <!-- scroll reveal  -->
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -441,6 +441,6 @@
      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <!-- mixitup cdn js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <script src="script.js?v=20260902-2"></script>
+    <script src="script.js?v=20260902-4"></script>
 </body>
 </html>
