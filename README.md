@@ -7,8 +7,8 @@
 
   A modern and responsive portfolio where clean code meets creative design.
 
-  [![Portfolio](https://img.shields.io/badge/Portfolio-Explore-7C3AED?style=for-the-badge&logo=googlechrome&logoColor=white)](https://github.com/janani-create/janani-portfolio)
-  [![Certificates](https://img.shields.io/badge/Certificates-View-F59E0B?style=for-the-badge&logo=files&logoColor=white)](certificates.html)
+  [![Source Code](https://img.shields.io/badge/Source_Code-Explore-7C3AED?style=for-the-badge&logo=github&logoColor=white)](https://github.com/janani-create/janani-portfolio)
+  [![Certificate Gallery](https://img.shields.io/badge/Certificate_Gallery-Source-F59E0B?style=for-the-badge&logo=files&logoColor=white)](certificates.html)
   [![GitHub](https://img.shields.io/badge/GitHub-janani--create-111827?style=for-the-badge&logo=github&logoColor=white)](https://github.com/janani-create)
 
   <br>
@@ -28,11 +28,14 @@ This portfolio presents my software engineering journey, selected projects, tech
 The design combines a deep modern theme with purple and orange accents, animated portrait effects, smooth reveals, and carefully crafted responsive layouts.
 
 <p align="center">
-  <a href="#-highlights">Highlights</a> ·
-  <a href="#%EF%B8%8F-technologies">Technologies</a> ·
-  <a href="#-run-locally">Run Locally</a> ·
-  <a href="#-project-structure">Structure</a>
+  <a href="#portfolio-preview">Preview</a> ·
+  <a href="#highlights">Highlights</a> ·
+  <a href="#technologies">Technologies</a> ·
+  <a href="#run-locally">Run Locally</a> ·
+  <a href="#project-structure">Structure</a>
 </p>
+
+<a id="portfolio-preview"></a>
 
 ## 🖼️ Portfolio Preview
 
@@ -68,6 +71,9 @@ The design combines a deep modern theme with purple and orange accents, animated
     <td><img src="images/readme/contact.png" alt="Contact section"></td>
   </tr>
 </table>
+
+<a id="highlights"></a>
+
 ## 🌟 Highlights
 
 | Experience | Portfolio Content | Accessibility |
@@ -76,6 +82,9 @@ The design combines a deep modern theme with purple and orange accents, animated
 | ✨ Page-opening drape animation | 🏆 Interactive certificates | 🧘 Reduced-motion support |
 | 🌊 Animated portrait effects | 📄 Built-in PDF viewer | 📱 Mobile-first responsiveness |
 | 🧭 Smooth section navigation | 🛠️ Skills and services showcase | 🏷️ Clear accessible labels |
+| ✉️ Gmail Compose contact flow | 🎬 Branded click transitions | 🔒 Review before sending |
+
+<a id="technologies"></a>
 
 ## 🛠️ Technologies
 
@@ -96,6 +105,8 @@ The design combines a deep modern theme with purple and orange accents, animated
 - **Skills** — technical tools and professional strengths
 - **Certificates** — filterable achievements with image and PDF previews
 - **Contact** — contact form and availability details
+
+<a id="run-locally"></a>
 
 ## 🚀 Run Locally
 
@@ -121,6 +132,8 @@ Alternatively, place the project inside XAMPP's `htdocs` directory and visit:
 http://localhost/janani-portfolio/
 ```
 
+<a id="project-structure"></a>
+
 ## 🗂️ Project Structure
 
 ```text
@@ -136,7 +149,7 @@ janani-portfolio/
 
 ## 🔒 Privacy
 
-Private social-media links and authentication details are intentionally excluded from this public repository.
+Private social-media links and authentication details are intentionally excluded from this public repository. The contact form opens Gmail Compose and passes only the subject and message entered by the visitor; Gmail always allows review before sending.
 
 ## 👩‍💻 Author
 
