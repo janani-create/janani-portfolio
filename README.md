@@ -34,6 +34,40 @@ The design combines a deep modern theme with purple and orange accents, animated
   <a href="#-project-structure">Structure</a>
 </p>
 
+## 🖼️ Portfolio Preview
+
+### Home
+
+<p align="center">
+  <img src="images/readme/home.png" alt="Portfolio home section" width="100%">
+</p>
+
+<table>
+  <tr>
+    <td width="50%" align="center"><strong>About Me</strong></td>
+    <td width="50%" align="center"><strong>Services</strong></td>
+  </tr>
+  <tr>
+    <td><img src="images/readme/about.png" alt="About me section"></td>
+    <td><img src="images/readme/services.png" alt="Services section"></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><strong>Projects</strong></td>
+    <td width="50%" align="center"><strong>Skills</strong></td>
+  </tr>
+  <tr>
+    <td><img src="images/readme/portfolio.png" alt="Projects section"></td>
+    <td><img src="images/readme/skills.png" alt="Skills section"></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><strong>Certificates</strong></td>
+    <td width="50%" align="center"><strong>Contact</strong></td>
+  </tr>
+  <tr>
+    <td><img src="images/readme/certificates.png" alt="Certificates section"></td>
+    <td><img src="images/readme/contact.png" alt="Contact section"></td>
+  </tr>
+</table>
 ## 🌟 Highlights
 
 | Experience | Portfolio Content | Accessibility |
