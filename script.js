@@ -113,14 +113,45 @@ window.addEventListener("scroll", updateOnScroll, { passive: true });
 window.addEventListener("load", updateOnScroll);
 updateOnScroll();
 
-if (typeof window.ScrollReveal === "function" && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const reveal = window.ScrollReveal({ distance: "60px", duration: 1200, delay: 100 });
-  reveal.reveal(".hero-info,.main-text,.proposal,.heading", { origin: "top" });
-  reveal.reveal(".about-img,.fillter-buttons,.contact-info", { origin: "left" });
-  reveal.reveal(".about-content,.skills", { origin: "right" });
-  reveal.reveal(".allServices,.portfolio-gallery,footer,.img-hero", { origin: "bottom" });
-}
+// Consistent native drape reveals using leaf elements only, so parents never hide their children.
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+  const revealSelectors = [
+    '.hero-info > *', '.hero-features article',
+    '.about-visual', '.about-kicker', '.about-copy > h2', '.about-copy > p', '.career-card', '.about-list-grid > div', '.about-stats > div', '.about-quote',
+    '.services-heading > *', '.servicesItem', '.services-cta',
+    '.portfolio-heading > *', '.project-filters', '.portfolio-box', '.projects-cta',
+    '.skills-kicker', '.skills-intro > h2', '.skills-intro > p', '.skills-intro > h3', '.skill-row', '.professional-skills > h3', '.professional-row', '.skills-tools > h3', '.tool-card', '.skills-summary > div',
+    '.certificates-heading > *', '.certificate-filters', '.certificate-card', '.certificate-more-wrap', '.certificates-note',
+    '.contact-overview > *', '.contact-form-card', '.contact-socials', '.contact-benefits article', 'footer'
+  ];
+  const revealItems = [...new Set(document.querySelectorAll(revealSelectors.join(',')))];
+  revealItems.forEach((item, index) => {
+    item.classList.add('site-reveal');
+    item.style.setProperty('--reveal-delay', `${(index % 6) * 55}ms`);
+  });
 
+  try {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -3% 0px' });
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    // Reveal the first viewport immediately and recover any item an observer misses.
+    const revealVisibleItems = () => revealItems.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.98 && rect.bottom > 0) item.classList.add('is-visible');
+    });
+    requestAnimationFrame(revealVisibleItems);
+    window.setTimeout(revealVisibleItems, 900);
+    window.addEventListener('scroll', revealVisibleItems, { passive: true });
+  } catch (_) {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+  }
+}
 const contactForm = document.querySelector("#contact form");
 if (contactForm) contactForm.addEventListener("submit", (event) => {
   event.preventDefault();

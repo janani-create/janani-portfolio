@@ -24,10 +24,11 @@
         html[data-theme="light"] .back{color:#5b21b6;border-color:#c4b5fd;background:#f3efff}
         html[data-theme="light"] iframe{background:#dfe5ec}
         html[data-theme="light"] .error{color:#b91c1c}
-        @media(max-width:600px){header{padding-inline:12px}.brand span{display:none}h1{font-size:.72rem}.back{padding-inline:10px}}
+        .page-drape{position:fixed;inset:0;z-index:99999;overflow:hidden;pointer-events:none;animation:viewer-drape-away 1.05s cubic-bezier(.76,0,.24,1) .12s forwards}.page-drape::before,.page-drape::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#140b2d,#4c1d95 48%,#c2410c)}.page-drape::after{background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.2),transparent 24%)}.page-drape span{position:absolute;left:50%;top:50%;z-index:2;width:54px;height:54px;border:3px solid rgba(255,255,255,.28);border-top-color:#fff;border-radius:50%;transform:translate(-50%,-50%);animation:viewer-drape-spin .7s linear infinite}@keyframes viewer-drape-away{0%{clip-path:inset(0 0 0 0);opacity:1}75%{clip-path:inset(0 0 0 0);opacity:1}100%{clip-path:inset(0 0 100% 0);opacity:0;visibility:hidden}}@keyframes viewer-drape-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}@media(prefers-reduced-motion:reduce){.page-drape{display:none}}        @media(max-width:600px){header{padding-inline:12px}.brand span{display:none}h1{font-size:.72rem}.back{padding-inline:10px}}
     </style>
 </head>
 <body>
+    <div class="page-drape" aria-hidden="true"><span></span></div>
     <header>
         <a class="brand" href="index.html#certificates"><img src="images/branding/janani-mark.svg" alt=""><span>Janani Somasiri<b>.</b></span></a>
         <h1 id="viewer-title">Certificate</h1>

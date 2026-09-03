@@ -9,13 +9,14 @@
     <script>
       document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme") || "dark";
     </script>
-    <link rel="stylesheet" href="style.css?v=20260902-12">
+    <link rel="stylesheet" href="style.css?v=20260903-31">
     <!-- boxicon css link -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 <body>
+    <div class="page-drape" aria-hidden="true"><span></span></div>
     <div class="overlay"></div>
     <header>
             <a href="#home" class="logo" aria-label="Janani Somasiri — go to portfolio home" title="Go to Home"><img src="images/branding/janani-mark.svg" alt="" width="38" height="38"><span>Janani Somasiri</span><b>.</b></a>
@@ -40,7 +41,7 @@
     <section class="home" id="home">
         <div class="hero-info">
             <p class="hero-hello"><span aria-hidden="true"></span> HELLO, WELCOME TO MY WORLD</p>
-            <h1>I'm <strong>Janani Somasiri</strong></h1>
+            <h1>I'm <strong>Janani<br>Somasiri</strong></h1>
             <h2 class="hero-role">Creative <span id="hero-role-text" aria-live="polite">Web Developer</span><b class="typing-cursor" aria-hidden="true"></b></h2>
             <p class="hero-intro">A software engineering undergraduate crafting thoughtful, responsive web experiences where clean code meets beautiful design.</p>
 
@@ -48,26 +49,9 @@
                 <a href="documents/Janani-Somasiri-CV.pdf" class="btn" target="_blank" rel="noopener noreferrer"><img src="images/buttons/view.svg" alt="" width="24" height="24"><span>View CV</span></a>
                 <a href="#contact" class="btn d-CV"><img src="images/buttons/contact.svg" alt="" width="24" height="24"><span>Contact Me</span></a>
             </div>
-
-            <div class="social-media">
-                <div class="bg-icon">
-                    <a href="https://www.facebook.com/profile.php?id=61583912349891" target="_blank" rel="noopener noreferrer" aria-label="Janani's Facebook profile"><img src="images/social/facebook.svg" alt="" width="28" height="28"></a>
-                </div>
-
-                <div class="bg-icon">
-                    <a href="https://www.linkedin.com/in/janani-somasiri-0b67a8219/" target="_blank" rel="noopener noreferrer" aria-label="Janani's LinkedIn profile"><img src="images/social/linkedin.svg" alt="" width="28" height="28"></a>
-                </div>
-
-                <div class="bg-icon">
-                    <a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer" aria-label="Janani's GitHub profile"><img src="images/social/github.svg" alt="" width="28" height="28"></a>
-                </div>
-
-                <div class="bg-icon">
-                    <a href="https://www.instagram.com/anju_janani21/" target="_blank" rel="noopener noreferrer" aria-label="Janani's Instagram profile"><img src="images/social/instagram.svg" alt="" width="28" height="28"></a>
-                </div>
-            </div>
         </div>
         <div class="img-hero">
+            <div class="hero-main-ring" aria-hidden="true"></div>
             <div class="hero-code" aria-hidden="true"><i class='bx bx-code-alt'></i></div>
             <img src="images/janani-profile.jpeg" alt="Janani Somasiri" width="1200" height="1600">
             <div class="hero-swoosh" aria-hidden="true"></div>
@@ -270,7 +254,7 @@
                 <div class="contact-details-list">
                     <div><span class="contact-detail-icon"><img src="images/about/email.svg" alt="" width="23" height="23"></span><p><strong>Email</strong><a href="mailto:avishkajanani20@gmail.com">avishkajanani20@gmail.com</a></p></div>
                     <div><span class="contact-detail-icon"><img src="images/about/phone.svg" alt="" width="23" height="23"></span><p><strong>Phone</strong><a href="tel:+94778081221">+94 77 808 1221</a></p></div>
-                    <div><span class="contact-detail-icon"><img src="images/about/location.svg" alt="" width="23" height="23"></span><p><strong>Location</strong><span>Delwagura, Sri Lanka</span></p></div>
+                    <div><span class="contact-detail-icon"><img src="images/about/location.svg" alt="" width="23" height="23"></span><p><strong>Location</strong><span>169, Wekada, Delwagura, Mirigama Via, Sri Lanka</span></p></div>
                     <div><span class="contact-detail-icon"><img src="images/contact/availability.svg" alt="" width="23" height="23"></span><p><strong>Availability</strong><span>Monday – Friday: 9:00 AM – 6:00 PM</span></p></div>
                 </div>
             </div>
@@ -287,18 +271,6 @@
                 <button type="submit" class="btn">Send Message <img class="send-icon" src="images/contact/send.svg" alt="" width="20" height="20"></button>
                 <p class="form-privacy"><i class='bx bx-lock-alt'></i> Your information is safe with me. I respect your privacy.</p>
             </form>
-
-            <aside class="contact-socials">
-                <h3>Connect With Me</h3>
-                <div class="contact-social-line" aria-hidden="true"></div>
-                <p>I'm active on social media. Let's connect and build something amazing together.</p>
-                <div class="contact-social-grid">
-                    <a href="https://www.facebook.com/profile.php?id=61583912349891" target="_blank" rel="noopener noreferrer"><img src="images/social/facebook.svg" alt="" width="44" height="44"><span>Facebook</span></a>
-                    <a href="https://www.linkedin.com/in/janani-somasiri-0b67a8219/" target="_blank" rel="noopener noreferrer"><img src="images/social/linkedin.svg" alt="" width="44" height="44"><span>LinkedIn</span></a>
-                    <a href="https://github.com/janani-create" target="_blank" rel="noopener noreferrer"><img src="images/social/github.svg" alt="" width="44" height="44"><span>GitHub</span></a>
-                    <a href="https://www.instagram.com/anju_janani21/" target="_blank" rel="noopener noreferrer"><img src="images/social/instagram.svg" alt="" width="44" height="44"><span>Instagram</span></a>
-                </div>
-            </aside>
         </div>
         <div class="contact-benefits"><article><img src="images/contact/fast-response.svg" alt="" width="48" height="48"><p><strong>Fast Response</strong><span>I usually reply within 24 hours.</span></p></article><article><img src="images/contact/opportunities.svg" alt="" width="48" height="48"><p><strong>Open to Opportunities</strong><span>I'm available for freelance and full-time work.</span></p></article><article><img src="images/contact/reliable.svg" alt="" width="48" height="48"><p><strong>Reliable &amp; Professional</strong><span>I'm committed to delivering quality work.</span></p></article><article><img src="images/contact/satisfaction.svg" alt="" width="48" height="48"><p><strong>Client Satisfaction</strong><span>Your satisfaction is my top priority.</span></p></article></div>
         <div class="contactSkills">
@@ -435,12 +407,10 @@
         <button id="scroll-down" type="button" aria-label="Go to next section" title="Next section"><i class='bx bx-chevron-down' aria-hidden="true"></i></button>
     </nav>
 
-    <!-- scroll reveal  -->
-    <script src="https://unpkg.com/scrollreveal"></script>
     <!-- Swiper JS -->
      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <!-- mixitup cdn js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <script src="script.js?v=20260902-4"></script>
+    <script src="script.js?v=20260903-10"></script>
 </body>
 </html>
