@@ -16,10 +16,37 @@ function setTheme(theme) {
 }
 
 setTheme(savedTheme || preferredTheme);
+let themeTransitionRunning = false;
 themeToggle?.addEventListener("click", () => {
+  if (themeTransitionRunning) return;
   const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-  localStorage.setItem("portfolio-theme", nextTheme);
-  setTheme(nextTheme);
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (reduceMotion) {
+    localStorage.setItem("portfolio-theme", nextTheme);
+    setTheme(nextTheme);
+    return;
+  }
+
+  themeTransitionRunning = true;
+  themeToggle.disabled = true;
+  const curtain = document.createElement("div");
+  curtain.className = `theme-push-curtain theme-push-to-${nextTheme}`;
+  curtain.setAttribute("aria-hidden", "true");
+  document.body.appendChild(curtain);
+  document.documentElement.classList.add("theme-is-transitioning");
+
+  requestAnimationFrame(() => curtain.classList.add("is-running"));
+  window.setTimeout(() => {
+    localStorage.setItem("portfolio-theme", nextTheme);
+    setTheme(nextTheme);
+  }, 360);
+  window.setTimeout(() => {
+    curtain.remove();
+    document.documentElement.classList.remove("theme-is-transitioning");
+    themeToggle.disabled = false;
+    themeTransitionRunning = false;
+  }, 820);
 });
 
 const menuIcon = document.querySelector(".menu-icon");

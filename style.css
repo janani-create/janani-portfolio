@@ -7142,3 +7142,33 @@ html[data-theme="light"] :is(
     background-clip:text!important;
     -webkit-text-fill-color:transparent!important;
 }
+/* Theme change curtain: pushes the new light/dark palette down from the top. */
+.theme-push-curtain{
+    position:fixed;
+    inset:0;
+    z-index:100000;
+    pointer-events:none;
+    transform:translate3d(0,-102%,0);
+    will-change:transform;
+}
+.theme-push-curtain::after{
+    content:"";
+    position:absolute;
+    right:0;
+    bottom:-16px;
+    left:0;
+    height:18px;
+    background:linear-gradient(90deg,#7c3aed,#dd48a2,#ff9412);
+    box-shadow:0 10px 34px rgba(124,58,237,.3);
+}
+.theme-push-curtain.theme-push-to-light{background:linear-gradient(145deg,#ffffff,#f2f5fb)}
+.theme-push-curtain.theme-push-to-dark{background:linear-gradient(145deg,#030914,#07101e 58%,#030916)}
+.theme-push-curtain.is-running{animation:theme-push-from-top .82s cubic-bezier(.76,0,.24,1) both}
+html.theme-is-transitioning,html.theme-is-transitioning body{overflow:hidden!important}
+html.theme-is-transitioning .theme-toggle{pointer-events:none}
+@keyframes theme-push-from-top{
+    0%{transform:translate3d(0,-102%,0)}
+    44%,56%{transform:translate3d(0,0,0)}
+    100%{transform:translate3d(0,102%,0)}
+}
+@media(prefers-reduced-motion:reduce){.theme-push-curtain{display:none!important}}
