@@ -7291,3 +7291,8 @@ header .right-header>.top-cv:hover .top-cv-icon{background:rgba(7,15,30,.24);box
 header .right-header>.top-cv:hover .top-cv-arrow{color:#fff;transform:translateX(3px)}
 html[data-theme="light"] header .right-header>.top-cv{color:#312e81!important;background:linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.94)) padding-box,linear-gradient(105deg,#8b42f2,#dc49a5,#ff9412) border-box!important;box-shadow:0 9px 24px rgba(76,29,149,.13)!important}
 html[data-theme="light"] header .right-header>.top-cv:hover{color:#fff!important;background:linear-gradient(105deg,#7c3aed,#d946a3 58%,#f97316) padding-box,linear-gradient(105deg,#a78bfa,#fb7185,#fdba74) border-box!important}
+/* Show every matching project; filtering alone controls card visibility. */
+.portfolio-gallery .portfolio-box:not(.is-project-hidden){display:flex!important}
+.portfolio-gallery .portfolio-box.is-project-hidden{display:none!important}
+@media(max-width:1050px){.portfolio-gallery .portfolio-box:not(.is-project-hidden){display:flex!important}}
+@media(max-width:650px){.portfolio-gallery .portfolio-box:not(.is-project-hidden){display:flex!important}}
