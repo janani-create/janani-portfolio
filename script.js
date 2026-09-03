@@ -197,11 +197,11 @@ connectTransitionLink?.addEventListener('click', (event) => {
   window.setTimeout(() => {
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'auto', block: 'start' });
     history.replaceState(null, '', '#contact');
-  }, 520);
+  }, 900);
   window.setTimeout(() => {
     transition.remove();
     connectTransitionLink.classList.remove('is-launching');
-  }, 1150);
+  }, 1900);
 });
 const contactForm = document.querySelector("#contact form");
 if (contactForm) contactForm.addEventListener("submit", (event) => {
