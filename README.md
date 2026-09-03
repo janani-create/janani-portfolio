@@ -1,40 +1,71 @@
-# Janani Somasiri — Portfolio
+<div align="center">
+  <img src="images/branding/janani-mark.svg" alt="Janani Somasiri logo" width="110">
 
-A modern, responsive personal portfolio showcasing my software engineering journey, projects, technical skills, services, and professional certificates.
+  # Janani Somasiri
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=111)](https://developer.mozilla.org/docs/Web/JavaScript)
-[![Responsive](https://img.shields.io/badge/Responsive-Design-8B5CF6)](#features)
+  ### Software Engineering Undergraduate · Web Developer · Creative Designer
 
-## About the project
+  A modern and responsive portfolio where clean code meets creative design.
 
-This portfolio was designed and developed to present my work and experience through an engaging, accessible interface. It uses a dark-and-light theme, responsive layouts, animated portrait effects, project filtering, and an interactive certificate gallery.
+  [![Portfolio](https://img.shields.io/badge/Portfolio-Explore-7C3AED?style=for-the-badge&logo=googlechrome&logoColor=white)](https://github.com/janani-create/janani-portfolio)
+  [![Certificates](https://img.shields.io/badge/Certificates-View-F59E0B?style=for-the-badge&logo=files&logoColor=white)](certificates.html)
+  [![GitHub](https://img.shields.io/badge/GitHub-janani--create-111827?style=for-the-badge&logo=github&logoColor=white)](https://github.com/janani-create)
 
-## Features
+  <br>
 
-- Responsive design for desktop, tablet, and mobile devices
-- Dark and light theme with saved user preference
-- Animated hero portrait and page-opening drape effects
-- About, services, projects, skills, certificates, and contact sections
-- Filterable project and certificate galleries
-- Built-in certificate preview with PDF viewer
-- Smooth section navigation and scroll-reveal animations
-- Downloadable curriculum vitae
-- Accessible labels, keyboard-friendly controls, and reduced-motion support
+  ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+  ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+  ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=111)
+  ![Responsive](https://img.shields.io/badge/Responsive-Design-A855F7?style=flat-square)
+</div>
 
-## Technologies
+---
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- [Swiper](https://swiperjs.com/) for responsive sliders
-- [Boxicons](https://boxicons.com/) for interface icons
-- Git and GitHub for version control
+## ✨ About This Portfolio
 
-## Run locally
+This portfolio presents my software engineering journey, selected projects, technical and professional skills, services, and learning achievements through an engaging and accessible interface.
 
-No build process is required.
+The design combines a deep modern theme with purple and orange accents, animated portrait effects, smooth reveals, and carefully crafted responsive layouts.
+
+<p align="center">
+  <a href="#-highlights">Highlights</a> ·
+  <a href="#%EF%B8%8F-technologies">Technologies</a> ·
+  <a href="#-run-locally">Run Locally</a> ·
+  <a href="#-project-structure">Structure</a>
+</p>
+
+## 🌟 Highlights
+
+| Experience | Portfolio Content | Accessibility |
+| --- | --- | --- |
+| 🌗 Dark and light themes | 💼 Filterable project gallery | ⌨️ Keyboard-friendly controls |
+| ✨ Page-opening drape animation | 🏆 Interactive certificates | 🧘 Reduced-motion support |
+| 🌊 Animated portrait effects | 📄 Built-in PDF viewer | 📱 Mobile-first responsiveness |
+| 🧭 Smooth section navigation | 🛠️ Skills and services showcase | 🏷️ Clear accessible labels |
+
+## 🛠️ Technologies
+
+| Category | Tools |
+| --- | --- |
+| Structure | HTML5 |
+| Styling | CSS3, responsive layouts, custom animations |
+| Interactivity | Vanilla JavaScript |
+| Components | Swiper, Boxicons |
+| Workflow | Git, GitHub, VS Code, XAMPP |
+
+## 📂 Featured Sections
+
+- **Home** — introduction, role, calls to action, and animated portrait
+- **About** — background, education, interests, and experience
+- **Services** — development and design capabilities
+- **Projects** — selected work with category filtering
+- **Skills** — technical tools and professional strengths
+- **Certificates** — filterable achievements with image and PDF previews
+- **Contact** — contact form and availability details
+
+## 🚀 Run Locally
+
+No build process or package installation is required.
 
 1. Clone the repository:
 
@@ -42,19 +73,21 @@ No build process is required.
    git clone https://github.com/janani-create/janani-portfolio.git
    ```
 
-2. Open the project directory:
+2. Open the project folder:
 
    ```bash
    cd janani-portfolio
    ```
 
-3. Open `index.html` in a browser, or place the folder inside XAMPP's `htdocs` directory and visit:
+3. Open `index.html` directly in your browser.
 
-   ```text
-   http://localhost/janani-portfolio/
-   ```
+Alternatively, place the project inside XAMPP's `htdocs` directory and visit:
 
-## Project structure
+```text
+http://localhost/janani-portfolio/
+```
+
+## 🗂️ Project Structure
 
 ```text
 janani-portfolio/
@@ -63,19 +96,31 @@ janani-portfolio/
 ├── certificate-viewer.html    # Certificate PDF viewer
 ├── style.css                  # Layout, themes, and animations
 ├── script.js                  # Interactions and filtering
-├── images/                    # Images, icons, and project previews
+├── images/                    # Branding, icons, and previews
 └── documents/                 # CV and certificate PDFs
 ```
 
-## Privacy
+## 🔒 Privacy
 
 Private social-media links and authentication details are intentionally excluded from this public repository.
 
-## Author
+## 👩‍💻 Author
 
-**Janani Somasiri**<br>
-Software Engineering Undergraduate & Web Developer
+<div align="center">
+  <img src="images/janani-profile.jpeg" alt="Janani Somasiri" width="150">
 
-## License
+  <strong>Janani Somasiri</strong><br>
+  Software Engineering Undergraduate & Web Developer
 
-This project is shared as a personal portfolio. The design, personal images, CV, and certificate documents remain the property of Janani Somasiri and may not be reused without permission.
+  _Designing meaningful experiences and building them with code._
+</div>
+
+## 📜 Usage
+
+This is a personal portfolio project. The design, personal images, CV, and certificate documents remain the property of Janani Somasiri and may not be reused without permission.
+
+---
+
+<div align="center">
+  Made with 💜, creativity, and code.
+</div>
