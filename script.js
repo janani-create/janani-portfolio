@@ -207,8 +207,10 @@ const contactForm = document.querySelector("#contact form");
 if (contactForm) contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(contactForm);
-  const subject = String(data.get("subject") || "Portfolio enquiry");
+  const subject = String(data.get("subject") || "Portfolio enquiry").trim();
   const message = String(data.get("message") || "").trim();
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const submitStatus = contactForm.querySelector('[data-gmail-status]');
   const gmailComposeUrl = new URL("https://mail.google.com/mail/");
   gmailComposeUrl.search = new URLSearchParams({
     view: "cm",
@@ -217,7 +219,26 @@ if (contactForm) contactForm.addEventListener("submit", (event) => {
     su: subject,
     body: message
   }).toString();
-  window.open(gmailComposeUrl.toString(), "_blank", "noopener,noreferrer");
+
+  const originalButtonContent = submitButton?.innerHTML;
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.classList.add('is-opening-gmail');
+    submitButton.innerHTML = '<span>Opening Gmail...</span><i class="bx bx-loader-alt bx-spin" aria-hidden="true"></i>';
+  }
+  if (submitStatus) submitStatus.textContent = 'Your Gmail draft is opening in a new tab for review.';
+
+  const gmailWindow = window.open(gmailComposeUrl.toString(), "_blank");
+  if (gmailWindow) gmailWindow.opener = null;
+  else window.location.assign(gmailComposeUrl.toString());
+
+  window.setTimeout(() => {
+    if (submitButton && originalButtonContent) {
+      submitButton.disabled = false;
+      submitButton.classList.remove('is-opening-gmail');
+      submitButton.innerHTML = originalButtonContent;
+    }
+  }, 1400);
 });
 
 const heroRoleText = document.getElementById("hero-role-text");

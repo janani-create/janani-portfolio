@@ -7243,3 +7243,8 @@ html.theme-is-transitioning .theme-toggle{pointer-events:none}
 @keyframes connect-push-down{0%{transform:translate3d(0,-103%,0)}40%,66%{transform:translate3d(0,0,0)}100%{transform:translate3d(0,103%,0)}}
 @keyframes connect-transition-copy{0%{opacity:0;transform:scale(.9) translateY(20px)}35%,78%{opacity:1;transform:scale(1) translateY(0)}100%{opacity:0;transform:scale(1.03) translateY(-10px)}}
 @media(prefers-reduced-motion:reduce){.connect-page-transition{display:none!important}.connect-transition-link{animation:none!important}}
+/* Gmail compose feedback for the contact form. */
+.gmail-compose-status{min-height:18px;margin:10px 0 0!important;color:#a78bfa!important;font-size:.7rem!important;text-align:center}
+.contact-form-card button.is-opening-gmail{cursor:wait;filter:saturate(.9);pointer-events:none}
+.contact-form-card button.is-opening-gmail i{font-size:1.3rem}
+html[data-theme="light"] .gmail-compose-status{color:#6d28d9!important}

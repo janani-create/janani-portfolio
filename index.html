@@ -9,7 +9,7 @@
     <script>
       document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme") || "dark";
     </script>
-    <link rel="stylesheet" href="style.css?v=20260903-39">
+    <link rel="stylesheet" href="style.css?v=20260903-40">
     <!-- boxicon css link -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Link Swiper's CSS -->
@@ -269,7 +269,8 @@
                 <label><span class="form-icon"><img src="images/contact/subject.svg" alt="" width="21" height="21"></span><input type="text" name="subject" placeholder="Subject" aria-label="Subject" required></label>
                 <label class="message-field"><span class="form-icon"><img src="images/contact/message.svg" alt="" width="21" height="21"></span><textarea name="message" rows="8" placeholder="Your Message" aria-label="Your message" required></textarea></label>
                 <button type="submit" class="btn">Send Message <img class="send-icon" src="images/contact/send.svg" alt="" width="20" height="20"></button>
-                <p class="form-privacy"><i class='bx bx-lock-alt'></i> Your information is safe with me. I respect your privacy.</p>
+                <p class="gmail-compose-status" data-gmail-status aria-live="polite"></p>
+                <p class="form-privacy"><i class='bx bx-lock-alt'></i> Only your subject and message are added to Gmail for you to review before sending.</p>
             </form>
         </div>
         <div class="contact-benefits"><article><img src="images/contact/fast-response.svg" alt="" width="48" height="48"><p><strong>Fast Response</strong><span>I usually reply within 24 hours.</span></p></article><article><img src="images/contact/opportunities.svg" alt="" width="48" height="48"><p><strong>Open to Opportunities</strong><span>I'm available for freelance and full-time work.</span></p></article><article><img src="images/contact/reliable.svg" alt="" width="48" height="48"><p><strong>Reliable &amp; Professional</strong><span>I'm committed to delivering quality work.</span></p></article><article><img src="images/contact/satisfaction.svg" alt="" width="48" height="48"><p><strong>Client Satisfaction</strong><span>Your satisfaction is my top priority.</span></p></article></div>
@@ -411,6 +412,6 @@
      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <!-- mixitup cdn js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <script src="script.js?v=20260903-18"></script>
+    <script src="script.js?v=20260903-19"></script>
 </body>
 </html>
