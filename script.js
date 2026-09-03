@@ -146,7 +146,7 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'Intersect
     '.hero-info > *', '.hero-features article',
     '.about-visual', '.about-kicker', '.about-copy > h2', '.about-copy > p', '.career-card', '.about-list-grid > div', '.about-stats > div', '.about-quote',
     '.services-heading > *', '.servicesItem', '.services-cta',
-    '.portfolio-heading > *', '.project-filters', '.portfolio-box', '.projects-cta',
+    '.portfolio-heading > *', '.project-filters', '.projects-cta',
     '.skills-kicker', '.skills-intro > h2', '.skills-intro > p', '.skills-intro > h3', '.skill-row', '.professional-skills > h3', '.professional-row', '.skills-tools > h3', '.tool-card', '.skills-summary > div',
     '.certificates-heading > *', '.certificate-filters', '.certificate-card', '.certificate-more-wrap', '.certificates-note',
     '.contact-overview > *', '.contact-form-card', '.contact-socials', '.contact-benefits article', 'footer'
@@ -306,7 +306,33 @@ if (skillsShowcase) {
 // Show practical details for each professional skill.
 const projectFilterButtons = [...document.querySelectorAll('[data-project-filter]')];
 const projectCards = [...document.querySelectorAll('.portfolio-gallery .portfolio-box[data-project-categories]')];
-if (projectFilterButtons.length && projectCards.length) {
+if (projectCards.length) {
+  const reduceProjectMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const playProjectCards = (cards = projectCards) => {
+    if (reduceProjectMotion) return;
+    const visibleCards = cards.filter((card) => getComputedStyle(card).display !== 'none');
+    visibleCards.forEach((card) => card.classList.remove('project-card-playing'));
+    void document.querySelector('.portfolio-gallery')?.offsetWidth;
+    visibleCards.forEach((card, index) => {
+      card.style.setProperty('--project-play-delay', `${index * 110}ms`);
+      card.classList.add('project-card-playing');
+    });
+  };
+
+  projectCards.forEach((card) => card.addEventListener('animationend', (event) => {
+    if (event.animationName === 'project-card-enter') card.classList.remove('project-card-playing');
+  }));
+
+  const projectSection = document.getElementById('portfolio');
+  if (!reduceProjectMotion && projectSection && 'IntersectionObserver' in window) {
+    const projectObserver = new IntersectionObserver((entries, observer) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      playProjectCards();
+      observer.disconnect();
+    }, { threshold: 0.16 });
+    projectObserver.observe(projectSection);
+  }
+
   projectFilterButtons.forEach((button) => button.addEventListener('click', () => {
     const selectedCategory = button.dataset.projectFilter;
     projectFilterButtons.forEach((filter) => {
@@ -314,12 +340,15 @@ if (projectFilterButtons.length && projectCards.length) {
       filter.classList.toggle('active', isSelected);
       filter.setAttribute('aria-pressed', String(isSelected));
     });
+    const matchingCards = [];
     projectCards.forEach((card) => {
       const categories = card.dataset.projectCategories.split(/\s+/);
       const matches = selectedCategory === 'all' || categories.includes(selectedCategory);
       card.classList.toggle('is-project-hidden', !matches);
       card.classList.toggle('is-project-match', selectedCategory !== 'all' && matches);
+      if (matches) matchingCards.push(card);
     });
+    requestAnimationFrame(() => playProjectCards(matchingCards));
   }));
 }
 

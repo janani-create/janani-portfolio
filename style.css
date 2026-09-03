@@ -7172,3 +7172,16 @@ html.theme-is-transitioning .theme-toggle{pointer-events:none}
     100%{transform:translate3d(0,102%,0)}
 }
 @media(prefers-reduced-motion:reduce){.theme-push-curtain{display:none!important}}
+/* Replayable staggered entrance for project cards. */
+.portfolio-box.project-card-playing{
+    animation:project-card-enter .72s cubic-bezier(.2,.75,.25,1) var(--project-play-delay,0ms) both!important;
+    will-change:translate,opacity,filter;
+}
+@keyframes project-card-enter{
+    0%{opacity:0;translate:0 34px;filter:blur(7px)}
+    55%{opacity:1;translate:0 -5px;filter:blur(0)}
+    100%{opacity:1;translate:0 0;filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){
+    .portfolio-box.project-card-playing{animation:none!important;opacity:1!important;translate:none!important;filter:none!important}
+}
