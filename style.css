@@ -7116,3 +7116,29 @@ html[data-theme="light"] footer p{color:#334155!important}
     header .right-header{position:absolute!important;right:8px!important;top:50%!important;z-index:3!important;transform:translateY(-50%)!important}
     header .navlist{max-width:calc(100vw - 20px)!important}
 }
+/* Keep every primary section title consistent in light mode. */
+html[data-theme="light"] :is(
+    .about-copy > h2,
+    .services-heading > h2,
+    .portfolio-heading > h2,
+    .skills-intro > h2,
+    .certificates-heading > h2,
+    .contact-overview > h2
+){
+    color:#111827!important;
+    -webkit-text-fill-color:#111827!important;
+}
+html[data-theme="light"] :is(
+    .about-copy > h2,
+    .services-heading > h2,
+    .portfolio-heading > h2,
+    .skills-intro > h2,
+    .certificates-heading > h2,
+    .contact-overview > h2
+) strong{
+    color:transparent!important;
+    background:linear-gradient(90deg,#8b42f2 0%,#df47a9 52%,#ff950f 100%)!important;
+    -webkit-background-clip:text!important;
+    background-clip:text!important;
+    -webkit-text-fill-color:transparent!important;
+}
