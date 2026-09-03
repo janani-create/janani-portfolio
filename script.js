@@ -179,30 +179,35 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'Intersect
     revealItems.forEach((item) => item.classList.add('is-visible'));
   }
 }
-// Play a dedicated transition only when the Skills call-to-action is selected.
-const connectTransitionLink = document.querySelector('.connect-transition-link');
-connectTransitionLink?.addEventListener('click', (event) => {
+// Present Contact like a new page when any Contact call-to-action is selected.
+const contactTransitionLinks = [...document.querySelectorAll('.contact-transition-link')];
+contactTransitionLinks.forEach((link) => link.addEventListener('click', (event) => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   event.preventDefault();
-  if (connectTransitionLink.classList.contains('is-launching')) return;
+  if (link.classList.contains('is-launching')) return;
 
-  connectTransitionLink.classList.add('is-launching');
+  const destination = link.getAttribute('href') || '#contact';
+  link.classList.add('is-launching');
   const transition = document.createElement('div');
   transition.className = 'connect-page-transition';
   transition.setAttribute('aria-hidden', 'true');
-  transition.innerHTML = '<div><span><i class="bx bx-message-rounded-dots"></i></span><small>Let\'s create together</small><strong>Turning ideas into something amazing.</strong></div>';
+  transition.innerHTML = '<div><span><i class="bx bx-message-rounded-dots"></i></span><small>Contact page</small><strong>Let\'s create something amazing together.</strong></div>';
   document.body.appendChild(transition);
   requestAnimationFrame(() => transition.classList.add('is-active'));
 
   window.setTimeout(() => {
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'auto', block: 'start' });
-    history.replaceState(null, '', '#contact');
+    if (destination.startsWith('#')) {
+      document.querySelector(destination)?.scrollIntoView({ behavior: 'auto', block: 'start' });
+      history.replaceState(null, '', destination);
+    } else {
+      window.location.href = destination;
+    }
   }, 1050);
   window.setTimeout(() => {
     transition.remove();
-    connectTransitionLink.classList.remove('is-launching');
+    link.classList.remove('is-launching');
   }, 2250);
-});
+}));
 const contactForm = document.querySelector("#contact form");
 if (contactForm) contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
