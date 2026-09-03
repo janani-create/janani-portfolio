@@ -7225,24 +7225,21 @@ html.theme-is-transitioning .theme-toggle{pointer-events:none}
 @keyframes project-launch-expand{0%{transform:scale(.1)}55%,100%{transform:scale(90)}}
 @keyframes project-launch-copy{to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.portfolio-box.project-is-launching,.project-launch-transition,.project-launch-transition::before,.project-launch-transition>*{animation:none!important}}
-/* Split-curtain transition for the Skills "Let's Connect" action. */
+/* Top-down transition for the Skills "Let's Connect" action. */
 .connect-transition-link{position:relative;overflow:hidden;isolation:isolate}
-.connect-transition-link::before{content:"";position:absolute;inset:-45%;z-index:-1;border-radius:50%;background:rgba(255,255,255,.28);transform:scale(0);transition:transform .45s ease}
+.connect-transition-link::before{content:"";position:absolute;inset:-45%;z-index:-1;border-radius:50%;background:rgba(255,255,255,.3);transform:scale(0);transition:transform .65s ease}
 .connect-transition-link.is-launching::before{transform:scale(2)}
-.connect-transition-link.is-launching{animation:connect-button-pulse .8s ease both;pointer-events:none}
-.connect-page-transition{position:fixed;inset:0;z-index:100002;display:grid;place-items:center;pointer-events:none;overflow:hidden}
-.connect-page-transition::before,.connect-page-transition::after{content:"";position:absolute;top:0;width:51%;height:100%;background:linear-gradient(145deg,#6d28d9,#b43adb 58%,#ec4899);will-change:transform}
-.connect-page-transition::before{left:0;transform:translateX(-105%)}
-.connect-page-transition::after{right:0;transform:translateX(105%);background:linear-gradient(215deg,#ff9412,#e94d85 54%,#8134e8)}
-.connect-page-transition>div{position:relative;z-index:1;display:grid;max-width:min(620px,86vw);place-items:center;gap:9px;color:#fff;text-align:center;opacity:0;transform:scale(.88)}
-.connect-page-transition span{display:grid;width:70px;height:70px;place-items:center;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:rgba(8,15,29,.3);box-shadow:0 0 32px rgba(255,255,255,.14);font-size:2rem}
-.connect-page-transition small{color:rgba(255,255,255,.78)!important;font-size:.7rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
-.connect-page-transition strong{color:#fff!important;font-size:clamp(1.5rem,4vw,3rem);line-height:1.1}
-.connect-page-transition.is-active::before{animation:connect-curtain-left 1.85s cubic-bezier(.76,0,.24,1) both}
-.connect-page-transition.is-active::after{animation:connect-curtain-right 1.85s cubic-bezier(.76,0,.24,1) both}
-.connect-page-transition.is-active>div{animation:connect-transition-copy 1.05s ease .42s both}
-@keyframes connect-button-pulse{50%{scale:.94;filter:brightness(1.25)}100%{scale:1;filter:brightness(1)}}
-@keyframes connect-curtain-left{0%{transform:translateX(-105%)}38%,60%{transform:translateX(0)}100%{transform:translateX(105%)}}
-@keyframes connect-curtain-right{0%{transform:translateX(105%)}38%,60%{transform:translateX(0)}100%{transform:translateX(-105%)}}
-@keyframes connect-transition-copy{0%{opacity:0;transform:scale(.88) translateY(14px)}45%,72%{opacity:1;transform:scale(1) translateY(0)}100%{opacity:0;transform:scale(1.03) translateY(-8px)}}
+.connect-transition-link.is-launching{animation:connect-button-pulse .85s ease both;pointer-events:none}
+.connect-page-transition{position:fixed;inset:0;z-index:100002;display:grid;place-items:center;pointer-events:none;overflow:hidden;transform:translate3d(0,-103%,0);background:radial-gradient(circle at 50% 42%,rgba(255,255,255,.17),transparent 25%),linear-gradient(145deg,#4c1d95,#8b2ce8 38%,#dc3b9a 68%,#ff8a0a);box-shadow:0 18px 45px rgba(76,29,149,.38);will-change:transform}
+.connect-page-transition::before{content:"";position:absolute;inset:18px;border:1px solid rgba(255,255,255,.2);border-radius:22px}
+.connect-page-transition::after{content:"";position:absolute;right:0;bottom:0;left:0;height:12px;background:linear-gradient(90deg,#ffad16,#f04b98,#8b45f5);box-shadow:0 -5px 22px rgba(255,255,255,.2)}
+.connect-page-transition>div{position:relative;z-index:1;display:grid;max-width:min(620px,86vw);place-items:center;gap:10px;color:#fff;text-align:center;opacity:0;transform:scale(.9) translateY(20px)}
+.connect-page-transition span{display:grid;width:76px;height:76px;place-items:center;border:2px solid rgba(255,255,255,.6);border-radius:50%;background:rgba(7,13,28,.28);box-shadow:0 0 38px rgba(255,255,255,.2);font-size:2.15rem}
+.connect-page-transition small{color:rgba(255,255,255,.82)!important;font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+.connect-page-transition strong{color:#fff!important;font-size:clamp(1.6rem,4vw,3.1rem);line-height:1.1;text-shadow:0 5px 18px rgba(42,12,78,.25)}
+.connect-page-transition.is-active{animation:connect-push-down 2.2s cubic-bezier(.76,0,.24,1) both}
+.connect-page-transition.is-active>div{animation:connect-transition-copy 1.25s ease .42s both}
+@keyframes connect-button-pulse{50%{scale:.93;filter:brightness(1.3)}100%{scale:1;filter:brightness(1)}}
+@keyframes connect-push-down{0%{transform:translate3d(0,-103%,0)}40%,66%{transform:translate3d(0,0,0)}100%{transform:translate3d(0,103%,0)}}
+@keyframes connect-transition-copy{0%{opacity:0;transform:scale(.9) translateY(20px)}35%,78%{opacity:1;transform:scale(1) translateY(0)}100%{opacity:0;transform:scale(1.03) translateY(-10px)}}
 @media(prefers-reduced-motion:reduce){.connect-page-transition{display:none!important}.connect-transition-link{animation:none!important}}
