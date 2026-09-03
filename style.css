@@ -7225,3 +7225,21 @@ html.theme-is-transitioning .theme-toggle{pointer-events:none}
 @keyframes project-launch-expand{0%{transform:scale(.1)}55%,100%{transform:scale(90)}}
 @keyframes project-launch-copy{to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.portfolio-box.project-is-launching,.project-launch-transition,.project-launch-transition::before,.project-launch-transition>*{animation:none!important}}
+/* Whole-section entrance shared by every page section. */
+section.section-transition-pending{
+    opacity:0;
+    translate:0 42px;
+    filter:blur(8px);
+}
+section.section-transition-visible{
+    animation:section-scene-enter .9s cubic-bezier(.2,.78,.22,1) both;
+    will-change:opacity,translate,filter;
+}
+@keyframes section-scene-enter{
+    0%{opacity:0;translate:0 42px;filter:blur(8px)}
+    58%{opacity:1;translate:0 -4px;filter:blur(0)}
+    100%{opacity:1;translate:0 0;filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){
+    section.section-transition-pending,section.section-transition-visible{opacity:1!important;translate:none!important;filter:none!important;animation:none!important}
+}

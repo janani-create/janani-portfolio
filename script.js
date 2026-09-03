@@ -179,6 +179,34 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'Intersect
     revealItems.forEach((item) => item.classList.add('is-visible'));
   }
 }
+// Animate each full page section once as it enters the viewport.
+const transitionSections = [...document.querySelectorAll('section[id]')];
+if (transitionSections.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  transitionSections.forEach((section) => section.classList.add('section-transition-pending'));
+  const showSection = (section) => {
+    section.classList.remove('section-transition-pending');
+    section.classList.add('section-transition-visible');
+    const finishSectionTransition = (event) => {
+      if (event.target !== section || event.animationName !== 'section-scene-enter') return;
+      section.classList.remove('section-transition-visible');
+      section.removeEventListener('animationend', finishSectionTransition);
+    };
+    section.addEventListener('animationend', finishSectionTransition);
+  };
+
+  if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        showSection(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+    transitionSections.forEach((section) => sectionObserver.observe(section));
+  } else {
+    transitionSections.forEach(showSection);
+  }
+}
 const contactForm = document.querySelector("#contact form");
 if (contactForm) contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
