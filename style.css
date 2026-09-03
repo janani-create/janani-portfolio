@@ -7268,3 +7268,26 @@ html[data-theme="light"] .gmail-compose-status{color:#6d28d9!important}
 .contact-form-card .send-icon{filter:brightness(0) invert(1)!important}
 html[data-theme="light"] .contact-form-card .form-icon.icon-purple{border-color:#c4b5fd!important;background:#f0eaff!important;box-shadow:0 5px 13px rgba(109,40,217,.1)!important}
 html[data-theme="light"] .contact-form-card .form-icon.icon-orange{border-color:#fdba74!important;background:#fff2e7!important;box-shadow:0 5px 13px rgba(234,88,12,.09)!important}
+/* Refined glass-outline header contact action. */
+header .right-header>.top-cv{
+    min-width:180px!important;
+    min-height:52px!important;
+    padding:6px 10px 6px 7px!important;
+    justify-content:flex-start!important;
+    gap:10px!important;
+    color:#f8fafc!important;
+    border:1px solid transparent!important;
+    border-radius:999px!important;
+    background:linear-gradient(#0b1425,#0b1425) padding-box,linear-gradient(105deg,#8b42f2,#dc49a5,#ff9412) border-box!important;
+    box-shadow:0 10px 28px rgba(76,29,149,.2)!important;
+    overflow:hidden!important;
+}
+header .right-header>.top-cv .top-cv-icon{display:grid!important;width:38px;height:38px;flex:0 0 38px;place-items:center;color:#fff!important;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#d946a3);box-shadow:0 6px 16px rgba(124,58,237,.28)}
+header .right-header>.top-cv .top-cv-icon i{font-size:1rem;transform:rotate(-8deg)}
+header .right-header>.top-cv>span:nth-child(2){color:inherit!important;background:none!important;-webkit-text-fill-color:currentColor!important;font-size:.88rem;font-weight:700}
+header .right-header>.top-cv .top-cv-arrow{margin-left:auto;color:#fb923c;font-size:1.25rem;transition:transform .25s ease,color .25s ease}
+header .right-header>.top-cv:hover{color:#fff!important;border-color:transparent!important;background:linear-gradient(105deg,#7c3aed,#d946a3 58%,#f97316) padding-box,linear-gradient(105deg,#a78bfa,#fb7185,#fdba74) border-box!important;box-shadow:0 14px 34px rgba(124,58,237,.3)!important;transform:translateY(-3px)!important}
+header .right-header>.top-cv:hover .top-cv-icon{background:rgba(7,15,30,.24);box-shadow:inset 0 0 0 1px rgba(255,255,255,.32)}
+header .right-header>.top-cv:hover .top-cv-arrow{color:#fff;transform:translateX(3px)}
+html[data-theme="light"] header .right-header>.top-cv{color:#312e81!important;background:linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.94)) padding-box,linear-gradient(105deg,#8b42f2,#dc49a5,#ff9412) border-box!important;box-shadow:0 9px 24px rgba(76,29,149,.13)!important}
+html[data-theme="light"] header .right-header>.top-cv:hover{color:#fff!important;background:linear-gradient(105deg,#7c3aed,#d946a3 58%,#f97316) padding-box,linear-gradient(105deg,#a78bfa,#fb7185,#fdba74) border-box!important}
