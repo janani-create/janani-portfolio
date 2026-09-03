@@ -7248,3 +7248,23 @@ html.theme-is-transitioning .theme-toggle{pointer-events:none}
 .contact-form-card button.is-opening-gmail{cursor:wait;filter:saturate(.9);pointer-events:none}
 .contact-form-card button.is-opening-gmail i{font-size:1.3rem}
 html[data-theme="light"] .gmail-compose-status{color:#6d28d9!important}
+/* Clear, colored contact-form icon holders in both themes. */
+.contact-form-card .form-icon{
+    width:38px!important;
+    height:38px!important;
+    flex:0 0 38px!important;
+    border:1px solid!important;
+    border-radius:11px!important;
+    box-shadow:inset 0 1px rgba(255,255,255,.08),0 5px 14px rgba(0,0,0,.12)!important;
+}
+.contact-form-card .form-icon.icon-purple{border-color:rgba(168,85,247,.58)!important;background:rgba(124,58,237,.13)!important}
+.contact-form-card .form-icon.icon-orange{border-color:rgba(249,115,22,.6)!important;background:rgba(249,115,22,.12)!important}
+.contact-form-card .form-icon img{width:22px!important;height:22px!important;opacity:1!important}
+.contact-form-card .form-icon.icon-purple img{filter:brightness(0) saturate(100%) invert(36%) sepia(93%) saturate(2625%) hue-rotate(249deg) brightness(99%) contrast(96%)!important}
+.contact-form-card .form-icon.icon-orange img{filter:brightness(0) saturate(100%) invert(56%) sepia(91%) saturate(2475%) hue-rotate(351deg) brightness(101%) contrast(99%)!important}
+.contact-form-card label:focus-within .form-icon{transform:scale(1.06);box-shadow:0 0 0 4px rgba(139,92,246,.08),0 8px 18px rgba(124,58,237,.16)!important}
+.contact-form-card label:focus-within .form-icon img{transform:scale(1.06)}
+.contact-form-card .message-field>.form-icon{margin-top:7px!important}
+.contact-form-card .send-icon{filter:brightness(0) invert(1)!important}
+html[data-theme="light"] .contact-form-card .form-icon.icon-purple{border-color:#c4b5fd!important;background:#f0eaff!important;box-shadow:0 5px 13px rgba(109,40,217,.1)!important}
+html[data-theme="light"] .contact-form-card .form-icon.icon-orange{border-color:#fdba74!important;background:#fff2e7!important;box-shadow:0 5px 13px rgba(234,88,12,.09)!important}

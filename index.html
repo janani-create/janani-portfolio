@@ -9,7 +9,7 @@
     <script>
       document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme") || "dark";
     </script>
-    <link rel="stylesheet" href="style.css?v=20260903-40">
+    <link rel="stylesheet" href="style.css?v=20260903-41">
     <!-- boxicon css link -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Link Swiper's CSS -->
@@ -262,12 +262,12 @@
             <form class="contact-form-card" action="https://mail.google.com/mail/" method="get" target="_blank">
                 <div class="form-heading"><h3>Send Me a Message</h3><p>Fill out the form below and I'll get back to you as soon as possible.</p></div>
                 <div class="contact-form-row">
-                    <label><span class="form-icon"><img src="images/contact/name.svg" alt="" width="21" height="21"></span><input type="text" name="firstName" placeholder="Your Name" aria-label="Your name" autocomplete="name" required></label>
-                    <label><span class="form-icon"><img src="images/about/email.svg" alt="" width="21" height="21"></span><input type="email" name="email" placeholder="Your Email" aria-label="Your email" autocomplete="email" required></label>
+                    <label><span class="form-icon icon-purple"><img src="images/contact/name.svg" alt="" width="21" height="21"></span><input type="text" name="firstName" placeholder="Your Name" aria-label="Your name" autocomplete="name" required></label>
+                    <label><span class="form-icon icon-orange"><img src="images/about/email.svg" alt="" width="21" height="21"></span><input type="email" name="email" placeholder="Your Email" aria-label="Your email" autocomplete="email" required></label>
                 </div>
-                <label><span class="form-icon"><i class='bx bx-phone'></i></span><input type="tel" name="phone" placeholder="Your Phone (Optional)" aria-label="Your phone" autocomplete="tel"></label>
-                <label><span class="form-icon"><img src="images/contact/subject.svg" alt="" width="21" height="21"></span><input type="text" name="subject" placeholder="Subject" aria-label="Subject" required></label>
-                <label class="message-field"><span class="form-icon"><img src="images/contact/message.svg" alt="" width="21" height="21"></span><textarea name="message" rows="8" placeholder="Your Message" aria-label="Your message" required></textarea></label>
+                <label><span class="form-icon icon-purple"><img src="images/about/phone.svg" alt="" width="21" height="21"></span><input type="tel" name="phone" placeholder="Your Phone (Optional)" aria-label="Your phone" autocomplete="tel"></label>
+                <label><span class="form-icon icon-orange"><img src="images/contact/subject.svg" alt="" width="21" height="21"></span><input type="text" name="subject" placeholder="Subject" aria-label="Subject" required></label>
+                <label class="message-field"><span class="form-icon icon-purple"><img src="images/contact/message.svg" alt="" width="21" height="21"></span><textarea name="message" rows="8" placeholder="Your Message" aria-label="Your message" required></textarea></label>
                 <button type="submit" class="btn">Send Message <img class="send-icon" src="images/contact/send.svg" alt="" width="20" height="20"></button>
                 <p class="gmail-compose-status" data-gmail-status aria-live="polite"></p>
                 <p class="form-privacy"><i class='bx bx-lock-alt'></i> Only your subject and message are added to Gmail for you to review before sending.</p>
