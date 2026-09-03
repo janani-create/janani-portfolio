@@ -352,6 +352,40 @@ if (projectCards.length) {
   }));
 }
 
+// Give project destinations a short branded launch transition before opening.
+const projectLinks = [...document.querySelectorAll('.portfolio-box .project-link')];
+projectLinks.forEach((link) => link.addEventListener('click', (event) => {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const href = link.getAttribute('href');
+  if (!href) return;
+  event.preventDefault();
+
+  const card = link.closest('.portfolio-box');
+  const projectName = card?.querySelector('h3')?.textContent.trim() || 'Project';
+  const opensNewTab = link.target === '_blank';
+  const destinationWindow = opensNewTab ? window.open('', '_blank') : null;
+  if (destinationWindow) destinationWindow.opener = null;
+
+  card?.classList.add('project-is-launching');
+  const transition = document.createElement('div');
+  transition.className = 'project-launch-transition';
+  transition.setAttribute('aria-hidden', 'true');
+  transition.innerHTML = `<span><i class="bx bx-rocket"></i></span><small>Opening project</small><strong>${projectName}</strong>`;
+  document.body.appendChild(transition);
+  requestAnimationFrame(() => transition.classList.add('is-active'));
+
+  window.setTimeout(() => {
+    if (opensNewTab && destinationWindow) destinationWindow.location.href = href;
+    else if (opensNewTab) window.open(href, '_blank', 'noopener,noreferrer');
+    else window.location.href = href;
+  }, 520);
+  window.setTimeout(() => {
+    transition.remove();
+    card?.classList.remove('project-is-launching');
+  }, 920);
+}));
 const professionalSkillCards = [...document.querySelectorAll('.professional-skills .professional-row')];
 if (professionalSkillCards.length) {
   const skillContent = {

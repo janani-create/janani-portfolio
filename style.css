@@ -7185,3 +7185,43 @@ html.theme-is-transitioning .theme-toggle{pointer-events:none}
 @media(prefers-reduced-motion:reduce){
     .portfolio-box.project-card-playing{animation:none!important;opacity:1!important;translate:none!important;filter:none!important}
 }
+/* Branded transition when a project destination is selected. */
+.portfolio-box.project-is-launching{
+    z-index:4;
+    animation:project-card-press .52s cubic-bezier(.2,.8,.2,1) both!important;
+}
+.project-launch-transition{
+    position:fixed;
+    inset:0;
+    z-index:100001;
+    display:grid;
+    place-content:center;
+    justify-items:center;
+    gap:7px;
+    color:#fff;
+    background:rgba(3,9,20,.2);
+    opacity:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+.project-launch-transition::before{
+    content:"";
+    position:absolute;
+    width:36px;
+    aspect-ratio:1;
+    border-radius:50%;
+    background:radial-gradient(circle,#9b43f4 0 34%,#df4ba4 55%,#ff9412 76%,#07101e 77%);
+    transform:scale(.1);
+}
+.project-launch-transition>span,.project-launch-transition>small,.project-launch-transition>strong{position:relative;z-index:1;opacity:0;transform:translateY(15px)}
+.project-launch-transition>span{display:grid;width:62px;height:62px;place-items:center;border:1px solid rgba(255,255,255,.48);border-radius:50%;background:rgba(7,16,31,.72);font-size:1.8rem}
+.project-launch-transition>small{color:rgba(255,255,255,.74)!important;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.project-launch-transition>strong{max-width:min(560px,86vw);color:#fff!important;font-size:clamp(1.4rem,3.5vw,2.5rem);text-align:center}
+.project-launch-transition.is-active{animation:project-launch-fade .9s ease both}
+.project-launch-transition.is-active::before{animation:project-launch-expand .9s cubic-bezier(.7,0,.2,1) both}
+.project-launch-transition.is-active>span,.project-launch-transition.is-active>small,.project-launch-transition.is-active>strong{animation:project-launch-copy .55s ease .18s both}
+@keyframes project-card-press{0%{scale:1}45%{scale:.965;filter:brightness(1.18)}100%{scale:1;filter:brightness(1)}}
+@keyframes project-launch-fade{0%{opacity:0}18%,76%{opacity:1}100%{opacity:0}}
+@keyframes project-launch-expand{0%{transform:scale(.1)}55%,100%{transform:scale(90)}}
+@keyframes project-launch-copy{to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.portfolio-box.project-is-launching,.project-launch-transition,.project-launch-transition::before,.project-launch-transition>*{animation:none!important}}
