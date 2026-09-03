@@ -207,9 +207,17 @@ const contactForm = document.querySelector("#contact form");
 if (contactForm) contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(contactForm);
-  const subject = data.get("subject") || "Portfolio enquiry";
-  const body = `${data.get("message") || ""}\n\nFrom: ${data.get("firstName") || ""} ${data.get("lastName") || ""}\nEmail: ${data.get("email") || ""}`;
-  location.href = `mailto:avishkajanani20@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const subject = String(data.get("subject") || "Portfolio enquiry");
+  const message = String(data.get("message") || "").trim();
+  const gmailComposeUrl = new URL("https://mail.google.com/mail/");
+  gmailComposeUrl.search = new URLSearchParams({
+    view: "cm",
+    fs: "1",
+    to: "avishkajanani20@gmail.com",
+    su: subject,
+    body: message
+  }).toString();
+  window.open(gmailComposeUrl.toString(), "_blank", "noopener,noreferrer");
 });
 
 const heroRoleText = document.getElementById("hero-role-text");
